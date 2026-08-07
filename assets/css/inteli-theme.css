@@ -1,0 +1,706 @@
+/* Tema Reveal.js do segmento Exec e Pós/MBA (fork do acervo 2026-2A-M03).
+   Nenhuma cor literal e nenhum font-family aqui: tudo vem de inteli-brand.css.
+   Verificado por tools/check_brand.py.
+   Diferença estrutural para a Graduação: a cor de segmento (verde escuro)
+   é ESCURA, então todo bloco com fundo --seg-secundaria usa texto
+   --seg-texto-sobre-secundaria (branco), nunca o roxo. */
+
+.reveal .slides section {
+  /* Altura fixa: conteudo que nao cabe NAO rola, quebra o slide.
+     E por isso que scrollHeight nao detecta estouro e o check_slides.py
+     precisa medir o retangulo de cada descendente. */
+  width: 1280px;
+  height: 720px;
+  padding: 44px 56px 72px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background: var(--seg-base);
+  color: var(--seg-texto);
+}
+
+/* O proprio Reveal.js, via JS, escreve style="display: block" no slide
+   ativo (config "display", default "block", trocado para "present" via
+   classList.add ao mesmo tempo). Estilo inline vence qualquer regra de
+   folha de estilo por especificidade, entao o "display: flex" da regra
+   acima nunca pega no slide visivel, silenciosamente, sem erro no
+   console: confirmado olhando o slide de capa renderizado, onde o
+   grafismo caia abaixo do titulo em vez de ao lado dele. So um
+   "!important" vence estilo inline sem "!important". Restrito a
+   ".present" para nao acender os slides escondidos, que o Reveal marca
+   com style="display: none" e cuja ocultacao nao pode ser desfeita. */
+.reveal .slides section.present {
+  display: flex !important;
+}
+
+.reveal p,
+.reveal li {
+  /* Piso de legibilidade para projecao. Nao reduzir para caber mais texto:
+     se nao cabe, o slide tem conteudo demais. */
+  font-size: var(--escala-texto);
+  line-height: 1.5;
+}
+
+.reveal h2 { font-size: var(--escala-titulo); }
+.reveal h3 { font-size: var(--escala-subtitulo); }
+
+.accent-bar {
+  width: 64px;
+  height: 6px;
+  background: var(--seg-secundaria);
+  margin-bottom: 16px;
+}
+
+.inteli-logo-header {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  width: 96px;
+  /* Resguardo da marca, p.51: a distancia minima e a largura entre o "i" e o
+     "n". Para 96px de marca, 28px cobre com folga. Reduzir isso faz o titulo
+     longo encostar no logo, defeito que o check_slides.py acusa como
+     TITULO NO LOGO. */
+}
+
+.concept-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.concept-card {
+  background: var(--seg-superficie);
+  border-top: 4px solid var(--seg-secundaria);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+
+.side-by-side { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.code-compact {
+  /* Existe para o caso "bloco de codigo em slide que ja tem concept-cards".
+     Sem isso o slide estoura os 720px. Manter o trecho em ate 18 linhas. */
+  font-size: var(--escala-complementar);
+  line-height: 1.35;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.slide-footer {
+  position: absolute;
+  left: 56px;
+  right: 56px;
+  bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--escala-complementar);
+  /* var(--seg-texto-suave) (#b2b6bf) sobre fundo branco da 2,03:1 de
+     contraste, ilegivel do fundo da sala projetada. A paleta oficial nao
+     tem um cinza intermediario que passe nisso, entao o rodape usa o
+     mesmo texto escuro do corpo do slide; o peso visual menor vem do
+     tamanho da fonte (--escala-complementar), nao de opacidade, que
+     derrubaria o contraste de novo. */
+  color: var(--seg-texto);
+}
+
+.slide-footer p {
+  /* Zera a margem padrao de paragrafo: aqui e uma linha unica de rodape,
+     nao corpo de texto. */
+  margin: 0;
+  font-size: var(--escala-complementar);
+}
+
+/* Faixa decorativa no topo dos slides "de trabalho" (conteudo, quiz,
+   exercicio). E decoracao de borda, igual ao slide-footer, por isso o
+   check_slides.py exclui .top-bar da checagem de sobreposicao junto com
+   .slide-footer e os elementos de logo-header. NAO usar position: absolute
+   em nenhum outro bloco alem destes tres. */
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--seg-secundaria);
+}
+
+/* Area de titulo dos slides de trabalho: titulo + accent-bar, sempre no
+   topo do bloco de conteudo (que comeca depois do padding-top de 44px,
+   longe da faixa de 6px do top-bar e do logo, que termina em 28px + ~57px
+   de altura). */
+.slide-title-area { margin-bottom: 24px; }
+.slide-title-area h2 { margin: 0; }
+
+/* Slide de abertura (capa): o grafismo NAO e um elemento ao lado de um
+   fundo, ele E o fundo. A p.77 do brandbook mostra o painel das tres faces
+   sangrando a peca inteira, sem moldura; nenhum tom solido da paleta da
+   contraste as tres faces ao mesmo tempo (correcao registrada no plano),
+   entao a solucao certa nunca foi "cor de fundo + grafismo por cima": e
+   ladrilhar a capa inteira com as tres faces e escrever o titulo sobre
+   UMA delas so, nunca sobre as tres (p.82).
+
+   Selector composto (".reveal .slides section.cover-slide" em vez de so
+   ".cover-slide"): a regra base ".reveal .slides section" tem duas classes
+   mais um elemento e vence ".cover-slide" sozinho no empate de
+   especificidade, deixando o alinhamento sempre no padrao. Mesmo raciocinio
+   para .section-slide e .end-slide logo abaixo. */
+.reveal .slides section.cover-slide {
+  /* Sem "background": quem preenche o slide e o .cover-panel abaixo, nao
+     uma cor solida atras dele. */
+  padding: 0;
+}
+
+/* Unico filho do slide, ocupa a secao inteira (1280x720, sem o padding
+   que as outras classes de slide tem, porque aqui nao ha moldura) e
+   empilha o ladrilho de tres faces com o bloco de texto na mesma celula
+   de grid, sem "position: absolute" (a segunda armadilha do repositorio):
+   grid com uma linha e uma coluna colocando os filhos na mesma celula faz
+   o mesmo papel de uma pilha posicionada, sem tocar em "position".
+
+   As tres faces, redesenhadas a partir dos mesmos 120 graus do grafismo
+   pequeno (assets/img/inteli-grafismo-graduacao.svg), so que recalculadas
+   para o retangulo de 1280x720 em vez do viewBox quadrado do icone: um
+   hexagono do mesmo tamanho do icone, so ampliado, deixaria sobrar margem
+   transparente nas laterais (o viewBox do icone tem respiro em volta do
+   hexagono) e o vertice de cima ficaria fora da tela de qualquer jeito.
+   Em vez de recortar o SVG pequeno, um "conic-gradient" particiona os
+   1280x720 em tres fatias de exatos 120 graus a partir de um unico centro
+   (640px 570px, mesmo ponto de encontro das tres faces do icone pequeno,
+   so que a distancia dos vertices opostos do hexagono e tao grande, para
+   cobrir a largura toda, que eles ficam fora da tela de qualquer forma:
+   o efeito visto por perto de um centro assim e indistinguivel de tres
+   losangos genuinos). A primeira tentativa desenhava as tres faces como
+   "clip-path" em divs separadas, mas isso disparou um bug de pintura no
+   Chrome headless (os divs recortados sempre ficavam por cima do texto,
+   nunca por baixo, mesmo vindo antes dele no DOM); um unico
+   "conic-gradient" tem a mesma particao angular sem esse problema. */
+.cover-panel {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  background: conic-gradient(
+    from 0deg at 640px 570px,
+    var(--seg-primaria) 0deg 120deg,
+    var(--seg-borda) 120deg 240deg,
+    var(--seg-secundaria) 240deg 360deg
+  );
+}
+
+.cover-panel > * {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Texto sobre a face roxa (unica face sob o bloco de titulo, nunca as
+   tres): metade direita da capa, onde o conic-gradient acima (0-120 graus
+   a partir do centro) cobre 100% da largura visivel naquela faixa
+   vertical. Texto claro, porque e a face que comporta texto claro (a
+   verde e a cinza-media comportam var(--seg-texto), sem uso nesta capa
+   mas documentado para quem for reaproveitar o padrao noutro slide). */
+.cover-content {
+  align-self: center;
+  justify-self: end;
+  max-width: 42%;
+  padding: 0 64px 0 0;
+  color: var(--inteli-branco);
+}
+
+.cover-eyebrow {
+  font-size: var(--escala-complementar);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  /* Sobre a face roxa da capa o verde escuro não se lê (dois escuros):
+     cinza claro dá 11:1 e mantém o eyebrow discreto. */
+  color: var(--inteli-cinza-claro);
+  margin: 0 0 12px;
+}
+
+.cover-content h1 { color: var(--inteli-branco); margin: 0 0 16px; }
+.cover-content h3 { color: var(--inteli-branco); font-weight: 400; margin: 0; }
+
+.reveal .slides section.section-slide {
+  background: var(--seg-secundaria);
+  /* Verde escuro é fundo escuro: texto branco (6,1:1), nunca roxo (2,3:1) */
+  color: var(--seg-texto-sobre-secundaria);
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.section-slide h2,
+.section-slide h3 {
+  color: var(--seg-texto-sobre-secundaria);
+}
+
+.section-slide .accent-bar {
+  /* Sobre o verde escuro, roxo e verde somem: o filete vira coral, o papel
+     de destaque que a p.68 reserva a ele. Ainda assim um token. */
+  background: var(--seg-destaque);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-slide h2 { margin: 0 0 8px; }
+.section-slide h3 { font-weight: 400; margin: 0; }
+
+.reveal .slides section.end-slide {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.end-slide h1,
+.end-slide h3 { color: var(--inteli-branco); margin: 0 0 12px; }
+.end-slide h3 { font-weight: 400; margin: 0; }
+
+/* Quiz: apenas o markup e o visual estatico aqui. Os estados de acerto e
+   erro (que leem data-correct, data-correct-msg, data-incorrect-msg) chegam
+   com o JS da proxima tarefa. */
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 720px;
+}
+
+.quiz-question { margin: 0; }
+
+.quiz-options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quiz-options li {
+  background: var(--seg-superficie);
+  border: 1px solid var(--seg-borda);
+  border-radius: 10px;
+  padding: 14px 18px;
+  cursor: pointer;
+}
+
+.exercise-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding-left: 28px;
+}
+
+/* Estados do quiz, escritos pelo inteli-quiz.js via classList.add: o JS so
+   troca classe, nunca escreve cor, entao esses estados moram aqui, so
+   tokens. .certa e .errada marcam a opcao clicada; .revelada marca a opcao
+   certa quando a pessoa erra; .quiz-feedback e o paragrafo com a mensagem
+   que o JS injeta apos a resposta.
+
+   Seletor composto (".quiz-options li.certa" em vez de so ".certa"), mesmo
+   raciocinio do ".quiz-container .quiz-feedback" logo abaixo: especificidade
+   (0,1,1) da regra ".quiz-options li" (linha ~267) vence um seletor de
+   classe sozinho (0,0,1) e a borda/fundo default nunca aparecia. Corrigido
+   na rodada de revisao 1 depois de o revisor medir com getComputedStyle e
+   achar borderLeftColor identico entre opcao certa, errada e intocada. */
+.quiz-options li.certa {
+  border-left: 4px solid var(--seg-secundaria);
+}
+
+.quiz-options li.errada {
+  border-left: 4px solid var(--seg-destaque);
+}
+
+/* var(--seg-superficie), o valor pedido originalmente para .revelada, e o
+   MESMO valor que ".quiz-options li" acima ja usa como fundo de repouso de
+   toda opcao: virou um no-op medido pelo revisor (backgroundColor identico
+   entre a opcao revelada e uma opcao intocada, mesmo com o seletor
+   composto corrigido). Trocado para var(--seg-secundaria), o mesmo verde
+   que ".certa" usa na borda (par roxo-sobre-verde ja usado sem problema de
+   contraste em ".section-slide"), para a opcao correta realmente se
+   destacar quando revelada sem ter sido clicada. */
+.quiz-options li.revelada {
+  background: var(--seg-secundaria);
+  /* No segmento Exec a secundária é escura: sem esta linha o texto da opção
+     revelada ficaria roxo sobre verde escuro, ilegível. */
+  color: var(--seg-texto-sobre-secundaria);
+}
+
+/* Especificidade maior que ".reveal p" (0,1,1) de proposito: precisa ganhar
+   dessa regra geral para poder reduzir o corpo do feedback e caber no
+   slide depois que o paragrafo e injetado no DOM (ver check_slides.py). */
+.quiz-container .quiz-feedback {
+  margin: 0;
+  font-size: var(--escala-complementar);
+}
+
+/* Print de ferramenta (Databricks, Copilot) embutido no slide, e o
+   placeholder tracejado usado enquanto a captura ainda não existe.
+   Trocar o placeholder pelo <img class="print-shot"> quando o arquivo
+   chegar em assets/img/prints/. */
+.print-shot {
+  max-width: 100%;
+  max-height: 420px;
+  border: 1px solid var(--seg-borda);
+  border-radius: 8px;
+  align-self: center;
+}
+
+.print-placeholder {
+  border: 2px dashed var(--seg-borda);
+  background: var(--seg-superficie);
+  border-radius: 10px;
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.print-placeholder p {
+  margin: 0;
+  font-size: var(--escala-complementar);
+}
+
+/* Botao flutuante que o inteli-print.js injeta. Escondido no proprio modo
+   de impressao por inteli-print.css (".print-button { display: none }"),
+   entao so aparece na tela normal do deck. */
+.print-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  padding: 10px 18px;
+  border: 1px solid var(--seg-borda);
+  border-radius: 8px;
+  background: var(--seg-base);
+  color: var(--seg-texto);
+  cursor: pointer;
+}
+
+/* ============================================================
+   Componentes visuais do Modulo 2 (redesign): indicadores, chips
+   de tokenizacao, embeddings, realces de prompt, processo e timer.
+   Nenhuma cor literal: tudo via tokens ou color-mix sobre tokens.
+   ============================================================ */
+
+/* Painel de indicadores (numeros grandes, estilo consultoria) */
+.stat-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 10px 0 6px;
+}
+
+.stat-tile {
+  background: var(--seg-superficie);
+  border-top: 4px solid var(--seg-secundaria);
+  border-radius: 8px;
+  padding: 14px 16px 12px;
+}
+
+.stat-tile .stat-numero {
+  font-size: 34px;
+  line-height: 1.1;
+  color: var(--seg-primaria);
+  margin: 0;
+}
+
+.stat-tile .stat-rotulo {
+  font-size: var(--escala-complementar);
+  margin: 4px 0 0;
+}
+
+.stat-tile.destaque { border-top-color: var(--seg-destaque); }
+
+/* Chips de tokenizacao */
+.token-linha {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin: 12px 0;
+}
+
+.token-chip {
+  font-size: 20px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--seg-superficie);
+  border-bottom: 4px solid var(--seg-borda);
+  white-space: pre;
+}
+
+.token-chip.t1 { border-bottom-color: var(--seg-primaria); }
+.token-chip.t2 { border-bottom-color: var(--seg-secundaria); }
+.token-chip.t3 { border-bottom-color: var(--seg-destaque); }
+
+/* Tabela de embeddings (palavra x dimensoes) */
+.embed-tabela {
+  border-collapse: collapse;
+  font-size: var(--escala-complementar);
+  width: 100%;
+}
+
+.embed-tabela th, .embed-tabela td {
+  border: 1px solid var(--seg-borda);
+  padding: 5px 8px;
+  text-align: center;
+}
+
+.embed-tabela th {
+  background: var(--seg-superficie);
+  font-weight: 600;
+}
+
+.embed-tabela td:first-child, .embed-tabela th:first-child {
+  background: var(--seg-superficie);
+}
+
+/* Realces por funcao dentro de blocos de prompt (pre.code-compact) */
+.hl-persona {
+  background: color-mix(in srgb, var(--seg-primaria) 16%, var(--seg-base));
+  border-left: 3px solid var(--seg-primaria);
+  display: inline-block; padding: 1px 4px;
+}
+
+.hl-dados {
+  background: color-mix(in srgb, var(--seg-secundaria) 16%, var(--seg-base));
+  border-left: 3px solid var(--seg-secundaria);
+  display: inline-block; padding: 1px 4px;
+}
+
+.hl-restricao {
+  background: color-mix(in srgb, var(--seg-destaque) 14%, var(--seg-base));
+  border-left: 3px solid var(--seg-destaque);
+  display: inline-block; padding: 1px 4px;
+}
+
+.hl-formato {
+  background: var(--seg-superficie);
+  border-left: 3px solid var(--seg-texto-suave, var(--seg-borda));
+  display: inline-block; padding: 1px 4px;
+}
+
+.hl-legenda {
+  display: flex;
+  gap: 18px;
+  font-size: var(--escala-complementar);
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.hl-legenda span::before {
+  content: "";
+  display: inline-block;
+  width: 12px; height: 12px;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+
+.hl-legenda .lg-persona::before { background: var(--seg-primaria); }
+.hl-legenda .lg-dados::before { background: var(--seg-secundaria); }
+.hl-legenda .lg-restricao::before { background: var(--seg-destaque); }
+.hl-legenda .lg-formato::before { background: var(--seg-borda); }
+
+/* Barra de processo (fases em sequencia, ex.: CRISP-DM) */
+.processo-fases {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.processo-fase {
+  background: var(--seg-superficie);
+  border-radius: 8px;
+  padding: 10px 10px 8px;
+  border-top: 4px solid var(--seg-borda);
+}
+
+.processo-fase.ativa { border-top-color: var(--seg-secundaria); }
+
+.processo-fase h4 {
+  font-size: 15px;
+  margin: 0 0 4px;
+  color: var(--seg-primaria);
+}
+
+.processo-fase p {
+  font-size: 13px;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Slide de leitura cronometrada */
+.leitura-timer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 10px 0;
+}
+
+.leitura-timer .tempo {
+  font-size: 72px;
+  color: var(--seg-secundaria);
+  line-height: 1;
+}
+
+/* Prompt usado em demonstracao (legenda acima do print da ferramenta) */
+.prompt-usado {
+  background: var(--seg-superficie);
+  border-left: 3px solid var(--seg-secundaria);
+  border-radius: 0 6px 6px 0;
+  padding: 8px 12px;
+  font-size: var(--escala-complementar);
+  margin: 0 0 10px;
+}
+
+/* Variante do print para slides que tambem carregam legenda de prompt */
+.print-shot.compacta { max-height: 320px; }
+
+/* ============================================================
+   Refinamento flat (estilo consultoria): sem raio de borda, sem
+   sombra, filetes finos, mais respiro tipografico, marcadores
+   quadrados e linha de fonte. Este bloco vence por cascata.
+   ============================================================ */
+
+.reveal .slides section * {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.reveal .slides section p,
+.reveal .slides section li {
+  line-height: 1.6;
+}
+
+.reveal .slides section li {
+  margin-bottom: 8px;
+}
+
+.reveal .slides section ul {
+  list-style: square;
+}
+
+/* Cartoes conceituais: fundo neutro, filete superior fino, sem moldura */
+.concept-card {
+  background: var(--seg-superficie);
+  border: none;
+  border-top: 2px solid var(--seg-primaria);
+}
+
+/* Indicadores sem caixa: numero grande sobre filete, estilo report */
+.stat-tile {
+  background: transparent;
+  border-top: 3px solid var(--seg-secundaria);
+  padding: 10px 4px 0 0;
+}
+
+.stat-tile.destaque { border-top-color: var(--seg-destaque); }
+
+.stat-tile .stat-numero { font-size: 40px; }
+
+/* Fases de processo: mesmo tratamento flat */
+.processo-fase {
+  background: transparent;
+  border-top: 3px solid var(--seg-borda);
+  padding: 10px 6px 0 0;
+}
+
+.processo-fase.ativa { border-top-color: var(--seg-secundaria); }
+
+.processo-fase h4 { font-size: 16px; }
+.processo-fase p { font-size: 14px; line-height: 1.45; }
+
+/* Chips de token: quadrados, filete inferior mantido */
+.token-chip { border-bottom-width: 3px; }
+
+/* Prompt usado e prints: hairline reta */
+.prompt-usado { border-left-width: 3px; }
+.print-shot { border: 1px solid var(--seg-borda); }
+
+/* Linha de fonte sob evidencias (padrao de report de consultoria) */
+.fonte-nota {
+  font-size: 13px;
+  color: var(--seg-texto);
+  margin: 6px 0 0;
+}
+
+.leitura-timer .tempo { font-size: 54px; }
+
+/* Aproveitamento vertical: componentes principais ganham escala e
+   margens para preencher o slide (menos area morta no rodape) */
+.stat-tiles { margin: 26px 0 14px; gap: 24px; }
+.stat-tile .stat-numero { font-size: 46px; }
+.stat-tile .stat-rotulo { font-size: 15px; }
+.processo-fases { margin: 30px 0 18px; gap: 14px; }
+.processo-fase { padding-top: 14px; }
+.processo-fase h4 { font-size: 18px; }
+.processo-fase p { font-size: 15px; line-height: 1.5; }
+.token-linha { margin: 20px 0 6px; }
+.token-chip { font-size: 22px; padding: 8px 12px; }
+.concept-cards { gap: 20px; margin-top: 10px; }
+.concept-card { padding: 18px 18px 16px; }
+.print-shot { max-height: 440px; }
+.code-compact { font-size: 16px; }
+.embed-tabela { font-size: 17px; }
+.leitura-timer { margin: 22px 0 26px; }
+
+/* Slide de apresentacao do professor */
+.bio-foto {
+  max-height: 470px;
+  border: 1px solid var(--seg-borda);
+}
+
+.bio-nome {
+  margin: 0 0 2px;
+}
+
+.bio-cargo {
+  font-size: 20px;
+  margin: 0 0 22px;
+  color: var(--seg-texto);
+}
+
+.bio-colunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.bio-colunas h4 {
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-top: 3px solid var(--seg-secundaria);
+  padding-top: 10px;
+  margin: 0 0 10px;
+  color: var(--seg-primaria);
+}
+
+.bio-colunas ul { list-style: none; margin: 0; padding: 0; }
+
+.bio-colunas li {
+  font-size: 17px;
+  line-height: 1.45;
+  margin-bottom: 9px;
+}
+
+.bio-colunas li strong { display: block; }
+.bio-colunas li span { font-size: 14px; }
+
+/* Tokenizacao: coluna com o segmento em cima e o ID numerico embaixo */
+.token-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.token-id {
+  font-size: 14px;
+  color: var(--seg-primaria);
+}

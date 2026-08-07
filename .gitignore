@@ -1,0 +1,26 @@
+# Ambiente e caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+
+# Saida do build do site (gerada por tools/build_site.py)
+_site/
+
+# Material institucional Inteli/Ambev: nao vai para repositorio publico.
+# Fica so na maquina do professor e no drive do programa.
+*.pptx
+*.docx
+!materiais/caderno-de-prompts-modulo2.docx
+BusinessCase*.pdf
+Inteli Exec *.pdf
+
+# Material de conducao. O repositorio e publico e o aluno chega nele: gabarito
+# das hipoteses, perguntas com resposta esperada, identificadores da infra da
+# demo e o desenho dos padroes plantados no dataset ficam de fora, senao o
+# exercicio da tarde vem respondido de casa.
+docs/notas-do-professor/
+docs/adrs/
+PLANO_AULA_MODULO2.md

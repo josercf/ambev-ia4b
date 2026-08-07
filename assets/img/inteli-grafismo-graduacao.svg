@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img"
+     aria-label="Grafismo Inteli, segmento Graduacao">
+  <title>Grafismo Inteli, tres faces em 120 graus</title>
+  <!-- Face superior esquerda: verde. Face superior direita: roxo.
+       Face inferior: cinza medio, amostrado do painel Graduacao na p.77
+       (nao cinza claro: essa e a cor de superficie do tema, nao a da face
+       do grafismo, e some contra qualquer fundo claro). Os tres losangos
+       partem do centro (100,100) para vertices do hexagono, o que garante
+       os 120 graus exigidos na p.78. -->
+  <polygon points="100,100 100,13.4 25,56.7 25,143.3" fill="#89cea5"/>
+  <polygon points="100,100 100,13.4 175,56.7 175,143.3" fill="#2e2640"/>
+  <polygon points="100,100 25,143.3 100,186.6 175,143.3" fill="#caced6"/>
+</svg>

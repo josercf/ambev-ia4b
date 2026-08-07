@@ -1,0 +1,50 @@
+/* CSS de impressao do tema Reveal.js do segmento Graduacao.
+   O Reveal.js, com o parametro ?print-pdf, empilha os slides em paginas ao
+   inves de troca-los por JS; este arquivo cuida do que sobra: o tamanho da
+   pagina e a preservacao de cor, que os navegadores por padrao removem ao
+   imprimir para economizar tinta.
+   Nenhuma cor literal e nenhum font-family aqui, mesma regra do tema.
+   Verificado por tools/check_brand.py. */
+
+@page {
+  size: 1280px 720px;
+  margin: 0;
+}
+
+@media print {
+  /* Fundo da pagina (a moldura ao redor do slide, se houver), nao do slide
+     em si: o slide de trabalho, capa, secao e encerramento ja declaram o
+     proprio fundo em inteli-theme.css (branco, roxo ou verde conforme a
+     classe). Um "!important" aqui pegava ".reveal .slides section" junto
+     com "html, body" e, como "!important" vence por importancia e nao por
+     especificidade, atropelava o fundo roxo/verde dessas classes: a capa e
+     o encerramento saiam brancos no PDF real, com texto branco sobre
+     branco, invisivel. Por isso o fundo fica restrito a html/body, sem
+     tocar a section. */
+  html,
+  body {
+    background: var(--seg-base);
+  }
+
+  html,
+  body,
+  .reveal,
+  .reveal .slides,
+  .reveal .slides section {
+    /* Sem cor aqui: so a instrucao para o navegador nao remover as cores
+       de fundo declaradas em cada slide ao gerar o PDF, que e o
+       comportamento padrao para economizar tinta. */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Controles do Reveal (setas, barra de progresso) e qualquer botao
+     flutuante de impressao que um deck venha a adicionar nao fazem sentido
+     no PDF: sem isso eles aparecem sobrepostos ao conteudo impresso. */
+  .reveal .controls,
+  .reveal .progress,
+  .reveal .slide-number,
+  .print-button {
+    display: none !important;
+  }
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img"
+     aria-label="Grafismo Inteli, segmento Exec">
+  <title>Grafismo Inteli, três faces em 120 graus</title>
+  <!-- Fork do inteli-grafismo-graduacao.svg do acervo 2026-2A-M03.
+       Combinação do segmento Exec/Pós (brandbook p.68): verde escuro,
+       roxo e cinza médio. A face verde claro da Graduação vira verde
+       escuro; a geometria (três losangos partindo do centro (100,100),
+       120 graus exatos, p.78) não muda. -->
+  <polygon points="100,100 100,13.4 25,56.7 25,143.3" fill="#066d73"/>
+  <polygon points="100,100 100,13.4 175,56.7 175,143.3" fill="#2e2640"/>
+  <polygon points="100,100 25,143.3 100,186.6 175,143.3" fill="#caced6"/>
+</svg>

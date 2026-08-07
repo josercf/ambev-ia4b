@@ -1,0 +1,77 @@
+name: Publicar deck no GitHub Pages
+
+# O deploy so acontece depois que os validadores passam. O deck e projetado em
+# sala: slide estourado ou imagem quebrada aparece na frente da turma, e nao ha
+# rollback util nesse momento. Por isso "validar" e um job separado, e nao um
+# passo dentro do build.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Um deploy por vez. Nao cancela o que ja esta em andamento: publicacao pela
+# metade e pior do que publicacao atrasada.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - run: pip install -r requirements-dev.txt
+
+      - name: Instalar Chromium do Playwright
+        run: python -m playwright install --with-deps chromium
+
+      - name: Brandbook (paleta, tipografia, iconografia)
+        run: python tools/check_brand.py
+
+      - name: Layout dos slides (estouro, sobreposicao, titulo no logo)
+        run: python tools/check_slides.py
+
+      - name: Testes do dataset e do build do site
+        run: python -m pytest dados/tests tools/tests -q
+
+  publicar:
+    needs: validar
+    # Pull request valida mas nao publica: o ambiente github-pages e unico e o
+    # site precisa refletir main.
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Montar o site (allowlist + conferencia de referencias)
+        run: python tools/build_site.py _site
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

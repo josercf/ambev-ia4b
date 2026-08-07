@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixture do tema Inteli Exec</title>
+
+  <!-- Fixture do tema: nao e uma aula. Comeca com underscore de proposito
+       para o portal e o check_slides.py ignorarem este arquivo. Serve para
+       o validador de layout da Task 4 medir o tema e como referencia viva
+       de cada classe de slide. -->
+
+  <link rel="stylesheet" href="../assets/vendor/reveal/reveal.css">
+  <link rel="stylesheet" href="../assets/css/inteli-brand.css">
+  <link rel="stylesheet" href="../assets/css/inteli-theme.css">
+  <link rel="stylesheet" href="../assets/css/inteli-print.css" media="print">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section class="cover-slide">
+        <div class="cover-panel">
+          <div class="cover-content">
+            <p class="cover-eyebrow">DSDM Ambev &middot; Inteli Exec</p>
+            <h1>Tema Reveal.js do segmento Exec</h1>
+            <h3>Fixture de referência do tema</h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-slide">
+        <div class="accent-bar"></div>
+        <h2>Seção de exemplo</h2>
+        <h3>Divisor de bloco temático</h3>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Conceitos-chave</h2>
+        </div>
+        <div class="concept-cards">
+          <div class="concept-card">
+            <h3>Dados</h3>
+            <p>Base de treino e teste.</p>
+          </div>
+          <div class="concept-card">
+            <h3>Modelo</h3>
+            <p>Algoritmo preditivo.</p>
+          </div>
+          <div class="concept-card">
+            <h3>Avaliação</h3>
+            <p>Métricas de desempenho.</p>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">Módulo 03 IN &middot; Aula 01</p>
+          <p class="footer-page">2</p>
+        </div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Código e explicação</h2>
+        </div>
+        <div class="side-by-side">
+          <div>
+            <p>O trecho ao lado carrega os dados e treina um modelo simples de classificação.</p>
+          </div>
+          <pre class="code-compact"><code>import pandas as pd
+from sklearn.linear_model import LogisticRegression
+
+dados = pd.read_csv("dados.csv")
+X = dados.drop(columns=["alvo"])
+y = dados["alvo"]
+
+modelo = LogisticRegression()
+modelo.fit(X, y)</code></pre>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">Módulo 03 IN &middot; Aula 01</p>
+          <p class="footer-page">3</p>
+        </div>
+      </section>
+
+      <section class="quiz-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Verificação rápida</h2>
+        </div>
+        <div class="quiz-container">
+          <p class="quiz-question">Qual etapa vem antes do treino do modelo?</p>
+          <ul class="quiz-options">
+            <li data-correct="true"
+                data-correct-msg="Correto: sem dados tratados não há treino confiável."
+                data-incorrect-msg="Quase: revise a ordem do pipeline.">Preparação dos dados</li>
+            <li data-correct="false"
+                data-correct-msg="Correto."
+                data-incorrect-msg="Essa etapa vem depois do treino.">Avaliação final</li>
+            <li data-correct="false"
+                data-correct-msg="Correto."
+                data-incorrect-msg="Essa etapa vem depois do treino.">Publicação do modelo</li>
+            <li data-correct="false"
+                data-correct-msg="Correto."
+                data-incorrect-msg="Essa etapa acontece durante o uso do modelo.">Monitoramento em produção</li>
+          </ul>
+        </div>
+        <div class="slide-footer">
+          <p class="footer-bar">Módulo 03 IN &middot; Aula 01</p>
+          <p class="footer-page">4</p>
+        </div>
+      </section>
+
+      <section class="exercise-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Exercício</h2>
+        </div>
+        <ol class="exercise-steps">
+          <li>Carregue o dataset fornecido.</li>
+          <li>Separe treino e teste.</li>
+          <li>Treine um modelo de base e registre a acurácia.</li>
+        </ol>
+        <div class="slide-footer">
+          <p class="footer-bar">Módulo 03 IN &middot; Aula 01</p>
+          <p class="footer-page">5</p>
+        </div>
+      </section>
+
+      <section class="end-slide">
+        <h1>Obrigado</h1>
+        <h3>Dúvidas ficam abertas para a próxima aula</h3>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../assets/vendor/reveal/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280, height: 720, center: false, margin: 0,
+      hash: true, slideNumber: false, transition: 'fade'
+    });
+  </script>
+  <script src="../assets/js/inteli-quiz.js"></script>
+  <script src="../assets/js/inteli-zoom.js"></script>
+  <script src="../assets/js/inteli-print.js"></script>
+</body>
+</html>

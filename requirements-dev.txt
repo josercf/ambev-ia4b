@@ -1,0 +1,8 @@
+# Dependencias de validacao e de geracao do dataset.
+# O deck em si nao depende de nada disto: Reveal.js esta vendorizado em
+# assets/vendor/ justamente para a aula rodar sem rede.
+pandas>=3.0
+numpy>=2.0
+pytest>=8.0
+# Usado por tools/check_slides.py para medir o layout dos slides num Chromium.
+playwright>=1.60
