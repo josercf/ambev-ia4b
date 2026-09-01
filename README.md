@@ -10,7 +10,7 @@ programa Data Science for Decision Makers do Inteli Exec (turma DSDMT10 Ambev).
 | Caminho | Conteúdo |
 | --- | --- |
 | `index.html` | Página inicial do site, com links para o deck e os materiais |
-| `aulas/modulo2.html` | Deck da aula em Reveal.js, 63 slides |
+| `aulas/modulo2.html` | Deck da aula em Reveal.js, 66 slides |
 | `assets/` | Tema Inteli (CSS de marca), scripts do deck e Reveal.js vendorizado |
 | `dados/` | Gerador e dataset sintético do case Coroa Premium |
 | `notebooks/` | Análise da tarde em Python, alternativa ao Genie |

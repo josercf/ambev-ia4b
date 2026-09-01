@@ -704,3 +704,135 @@
   font-size: 14px;
   color: var(--seg-primaria);
 }
+
+/* ============================================================
+   Bloco de agentes (deck 16 a 21), trazido do AI4B B2C: medidor
+   dos niveis de uso, caixa do harness e diagrama de autonomia.
+   Fica no fim do arquivo de proposito, depois do bloco de
+   redesign, para nao ser sobrescrito por ele.
+   Nenhuma cor literal: tudo var(--seg-*) ou var(--inteli-*).
+   ============================================================ */
+
+/* Quatro niveis de uso. O medidor e o que o slide do PPTX fazia com
+   quatro tracinhos: quantos segmentos acesos = quanto da decisao a IA
+   assume. E encoding redundante com a ordem das colunas, de proposito,
+   porque a ordem sozinha nao se le de longe. */
+.niveis-uso {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items: stretch;
+  margin-top: 6px;
+}
+
+.niveis-uso .concept-card { display: flex; flex-direction: column; }
+.niveis-uso .concept-card h3 { font-size: 21px; margin: 0; }
+.niveis-uso .concept-card p { font-size: 16px; margin: 0 0 8px; }
+
+.nivel-medidor { display: flex; gap: 4px; margin: 8px 0 10px; }
+
+.nivel-medidor span {
+  flex: 1;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--seg-borda);
+}
+
+.nivel-medidor span.aceso { background: var(--seg-secundaria); }
+
+.nivel-exemplo { font-size: 14px; }
+
+/* Faixa com o papel que sobra para a pessoa, colada no pe do cartao.
+   Seletor composto de proposito: ".nivel-papel" sozinho (0,1,0) perde para
+   ".niveis-uso .concept-card p" (0,2,1) logo acima, e o "margin: auto" que
+   empurra a faixa para baixo era descartado em silencio. O cartao com menos
+   texto ficava com a faixa flutuando no meio. */
+.niveis-uso .concept-card p.nivel-papel {
+  margin: auto 0 0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Harness: tres colunas dentro de uma moldura unica, porque o argumento
+   do slide e que as tres partes sao um conjunto so em volta do modelo */
+.harness {
+  border: 1px solid var(--seg-borda);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.harness-titulo {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--seg-primaria);
+  margin: 0 0 10px;
+}
+
+.harness-colunas > div > .harness-titulo { min-height: 34px; }
+
+.harness-colunas {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.harness-bloco {
+  background: var(--seg-superficie);
+  border-radius: 8px;
+  padding: 9px 11px;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.harness-bloco .material-symbols-outlined,
+.harness-ferramentas .material-symbols-outlined {
+  font-size: 19px;
+  vertical-align: -4px;
+  margin-right: 5px;
+  color: var(--seg-secundaria);
+}
+
+.harness-modelo {
+  background: var(--seg-primaria);
+  color: var(--inteli-branco);
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.harness-modelo strong { display: block; font-size: 19px; }
+.harness-modelo span { font-size: 14px; }
+
+.harness-ferramentas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.harness-ferramentas .material-symbols-outlined { margin: 0; }
+
+/* Niveis de autonomia: rotulo do grau de controle sob o diagrama */
+.controle-humano {
+  border-top: 3px solid var(--seg-secundaria);
+  padding-top: 8px;
+  margin: 10px 0 0;
+  font-size: 16px;
+}
+
+/* Slides de nivel de autonomia: o diagrama a esquerda e curto, a coluna da
+   direita tem tres subtitulos e uma lista, e no espacamento padrao ela
+   estourava os 720px em 44px. Aperta so aqui, sem mexer no h3 global. */
+.autonomia h3 { font-size: 20px; margin: 14px 0 4px; }
+.autonomia > div > h3:first-child { margin-top: 0; }
+.autonomia p { margin: 0 0 4px; }
+.autonomia ul { margin: 0; }
+.autonomia li { margin-bottom: 4px; }

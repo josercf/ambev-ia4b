@@ -352,18 +352,22 @@
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
         <div class="slide-title-area">
           <div class="accent-bar"></div>
-          <h2>Sprints e maratonas</h2>
+          <h2>Nem toda tarefa acontece no mesmo ritmo</h2>
         </div>
+
         <div class="side-by-side">
-          <div class="concept-card fragment">
-            <h3><span class="material-symbols-outlined">sprint</span> Sprints</h3>
-            <p>Tarefas curtas e pontuais: resumir um e-mail, reescrever um parágrafo, calcular um delta. Um bom prompt resolve.</p>
+          <div>
+            <img src="../assets/img/sprint-ilustracao.jpg" alt="Ilustração de um corredor em ritmo de tiro curto numa pista ensolarada" style="max-height: 236px; display: block; margin: 0 auto 10px; border-radius: 8px;">
+            <h3>Sprint</h3>
+            <p>Tarefas simples, diretas e pontuais: resumir um e-mail, reescrever um parágrafo, calcular um delta. Um bom prompt resolve.</p>
           </div>
-          <div class="concept-card fragment">
-            <h3><span class="material-symbols-outlined">route</span> Maratonas</h3>
-            <p>Tarefas de múltiplas etapas: cruzar três fontes, testar hipóteses, montar recomendação. Exigem método, iteração e verificação. O caso de hoje é uma maratona.</p>
+          <div>
+            <img src="../assets/img/maratona-ilustracao.jpg" alt="Ilustração de um corredor exausto no meio de uma maratona urbana sob chuva" style="max-height: 236px; display: block; margin: 0 auto 10px; border-radius: 8px;">
+            <h3>Maratona</h3>
+            <p>Tarefas complexas, que pedem contexto, aprofundamento e várias etapas de trabalho: cruzar três fontes, testar hipóteses, montar recomendação.</p>
           </div>
         </div>
+        <p>O caso Coroa Premium é uma maratona, e é por isso que o dia inteiro gira em torno dele.</p>
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">16</p></div>
       </section>
 
@@ -374,23 +378,10 @@
           <div class="accent-bar"></div>
           <h2>Quatro níveis de uso de IA</h2>
         </div>
-        <div class="concept-cards" style="grid-template-columns: repeat(4, 1fr);">
-          <div class="concept-card fragment">
-            <h3>Automação</h3>
-            <p>Regras fixas, sem IA. Se o fluxo é determinístico, é o nível certo.</p>
-          </div>
-          <div class="concept-card fragment">
-            <h3>Assistente</h3>
-            <p>Responde quando chamado. O chat que você já usa.</p>
-          </div>
-          <div class="concept-card fragment">
-            <h3>Copiloto</h3>
-            <p>Sugere dentro do fluxo de trabalho: Copilot no Excel, Genie no Databricks.</p>
-          </div>
-          <div class="concept-card fragment">
-            <h3>Agente</h3>
-            <p>Recebe um objetivo e executa etapas. Poder e risco crescem juntos.</p>
-          </div>
+
+        <p>Conforme o humano sai do loop, a IA assume mais etapas da decisão.</p>
+        <div class="niveis-uso">
+          <div class="concept-card fragment"><h3>Automação</h3><div class="nivel-medidor"><span class="aceso"></span><span></span><span></span><span></span></div><p>Segue regras fixas e faz sempre igual.</p><p class="nivel-exemplo">Ex.: regra no ERP que replica o pedido do mês anterior.</p><p class="nivel-papel">Regras humanas</p></div><div class="concept-card fragment"><h3>Assistente</h3><div class="nivel-medidor"><span class="aceso"></span><span class="aceso"></span><span></span><span></span></div><p>Responde quando é chamado.</p><p class="nivel-exemplo">Ex.: resumir em três linhas o e-mail da regional.</p><p class="nivel-papel">Decisão humana</p></div><div class="concept-card fragment"><h3>Copiloto</h3><div class="nivel-medidor"><span class="aceso"></span><span class="aceso"></span><span class="aceso"></span><span></span></div><p>Sugere dentro do fluxo de trabalho.</p><p class="nivel-exemplo">Ex.: Copilot no Excel, Genie no Databricks.</p><p class="nivel-papel">Aprovação humana</p></div><div class="concept-card fragment"><h3>Agente</h3><div class="nivel-medidor"><span class="aceso"></span><span class="aceso"></span><span class="aceso"></span><span class="aceso"></span></div><p>Recebe um objetivo e executa as etapas.</p><p class="nivel-exemplo">Ex.: triagem de pedidos fora do padrão.</p><p class="nivel-papel">Supervisão humana</p></div>
         </div>
         <p class="fragment">Hoje operamos assistentes e copilotos. Agentes são conversa para o fim do programa.</p>
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">17</p></div>
@@ -401,24 +392,114 @@
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
         <div class="slide-title-area">
           <div class="accent-bar"></div>
-          <h2>Níveis de autonomia</h2>
+          <h2>O harness transforma modelo em agente</h2>
         </div>
-        <div class="concept-cards">
-          <div class="concept-card fragment">
-            <h3>Human in the loop</h3>
-            <p>A IA recomenda, a pessoa decide. Decisões de alto impacto: é o caso da recomendação de hoje.</p>
-          </div>
-          <div class="concept-card fragment">
-            <h3>Human on the loop</h3>
-            <p>A IA executa, a pessoa supervisiona por exceção. Alto volume, erro reversível.</p>
-          </div>
-          <div class="concept-card fragment">
-            <h3>Human out of the loop</h3>
-            <p>Ciclo automatizado com limites e auditoria. Decisões em milissegundos.</p>
+
+        <div class="harness">
+          <p class="harness-titulo">Harness &middot; tudo o que existe em volta do modelo</p>
+          <div class="harness-colunas">
+            <div>
+              <p class="harness-titulo">Guias &middot; o que entra antes</p>
+              <div class="harness-bloco"><span class="material-symbols-outlined">policy</span>Instruções e políticas</div>
+              <div class="harness-bloco"><span class="material-symbols-outlined">domain</span>Contexto do negócio</div>
+              <div class="harness-bloco"><span class="material-symbols-outlined">pattern</span>Exemplos e padrões</div>
+            </div>
+            <div>
+              <div class="harness-modelo"><strong>Modelo</strong><span>Claude, GPT, Gemini</span></div>
+              <p class="harness-titulo">Ferramentas e memória</p>
+              <div class="harness-ferramentas">
+                <div><span class="material-symbols-outlined">mail</span><br>E-mail</div>
+                <div><span class="material-symbols-outlined">folder</span><br>Arquivos</div>
+                <div><span class="material-symbols-outlined">forum</span><br>Mensagens</div>
+                <div><span class="material-symbols-outlined">database</span><br>Bases</div>
+              </div>
+            </div>
+            <div>
+              <p class="harness-titulo">Sensores &middot; o que valida depois</p>
+              <div class="harness-bloco"><span class="material-symbols-outlined">fact_check</span>Validação da saída</div>
+              <div class="harness-bloco"><span class="material-symbols-outlined">rate_review</span>Revisor automático</div>
+              <div class="harness-bloco"><span class="material-symbols-outlined">gavel</span>Alçada e auditoria</div>
+            </div>
           </div>
         </div>
-        <p class="fragment">Pergunta à sala: onde está o corte de preço promocional? E a reposição de estoque no PDV?</p>
+        <p>Sem harness o modelo responde, mas não age. Trocar o harness muda o resultado sem trocar o modelo.</p>
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">18</p></div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Human in the loop</h2>
+        </div>
+
+        <div class="side-by-side autonomia">
+          <div>
+            <svg viewBox="0 0 380 200" role="img" aria-label="A IA passa pela pessoa antes de virar ação" style="width: 100%; max-height: 210px"><circle cx="46" cy="96" r="34" style="fill: var(--seg-primaria)"/><text x="46" y="103" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 19px">IA</text><circle cx="334" cy="96" r="34" style="fill: var(--seg-secundaria)"/><text x="334" y="103" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 18px">Ação</text><defs><marker id="pt1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" style="fill: var(--seg-primaria)"/></marker></defs><line x1="84" y1="96" x2="140" y2="96" style="stroke: var(--seg-primaria); stroke-width: 2" marker-end="url(#pt1)"/><rect x="146" y="74" width="88" height="44" rx="8" style="fill: var(--seg-superficie); stroke: var(--seg-primaria); stroke-width: 1.5"/><text x="190" y="101" text-anchor="middle" style="fill: var(--seg-texto); font-size: 15px">Humano</text><line x1="240" y1="96" x2="292" y2="96" style="stroke: var(--seg-primaria); stroke-width: 2" marker-end="url(#pt1)"/></svg>
+            <p class="controle-humano">Controle humano: <strong>Alto</strong></p>
+          </div>
+          <div>
+            <h3>O que é</h3>
+            <p>A IA analisa e recomenda; nada é executado sem aprovação humana explícita.</p>
+            <h3>Quando usar</h3>
+            <ul><li>Alto impacto ou exigência regulatória.</li><li>Baixa tolerância a erro.</li><li>Casos novos, sem histórico.</li></ul>
+            <h3>Exemplos</h3>
+            <p>Corte de preço promocional no canal alimentar, verba de trade por região, resposta a órgão regulador. É o nível da recomendação que vocês montam hoje sobre o Coroa Premium.</p>
+          </div>
+        </div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">19</p></div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Human on the loop</h2>
+        </div>
+
+        <div class="side-by-side autonomia">
+          <div>
+            <svg viewBox="0 0 380 200" role="img" aria-label="A IA vai direto à ação e a pessoa observa de cima" style="width: 100%; max-height: 210px"><circle cx="46" cy="96" r="34" style="fill: var(--seg-primaria)"/><text x="46" y="103" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 19px">IA</text><circle cx="334" cy="96" r="34" style="fill: var(--seg-secundaria)"/><text x="334" y="103" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 18px">Ação</text><defs><marker id="pt2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" style="fill: var(--seg-primaria)"/></marker></defs><line x1="84" y1="96" x2="292" y2="96" style="stroke: var(--seg-primaria); stroke-width: 2" marker-end="url(#pt2)"/><rect x="146" y="14" width="88" height="44" rx="8" style="fill: var(--seg-superficie); stroke: var(--seg-primaria); stroke-width: 1.5"/><text x="190" y="41" text-anchor="middle" style="fill: var(--seg-texto); font-size: 15px">Humano</text><line x1="190" y1="58" x2="190" y2="88" style="stroke: var(--seg-primaria); stroke-width: 1.5; stroke-dasharray: 5 4"/></svg>
+            <p class="controle-humano">Controle humano: <strong>Médio</strong></p>
+          </div>
+          <div>
+            <h3>O que é</h3>
+            <p>A IA decide e age sozinha; a pessoa monitora indicadores e intervém por exceção.</p>
+            <h3>Quando usar</h3>
+            <ul><li>Alto volume e decisões repetitivas.</li><li>Erro tolerável e reversível.</li><li>Regras claras de alerta e intervenção.</li></ul>
+            <h3>Exemplos</h3>
+            <p>Previsão de demanda por PDV, sugestão de reposição de estoque, alerta de PDV com queda atípica de sell-out.</p>
+          </div>
+        </div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">20</p></div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Human out of the loop</h2>
+        </div>
+
+        <div class="side-by-side autonomia">
+          <div>
+            <svg viewBox="0 0 380 200" role="img" aria-label="A IA age sozinha e a pessoa audita depois" style="width: 100%; max-height: 210px"><circle cx="46" cy="96" r="34" style="fill: var(--seg-primaria)"/><text x="46" y="103" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 19px">IA</text><circle cx="334" cy="96" r="34" style="fill: var(--seg-secundaria)"/><text x="334" y="103" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 18px">Ação</text><defs><marker id="pt3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" style="fill: var(--seg-primaria)"/></marker></defs><line x1="84" y1="96" x2="292" y2="96" style="stroke: var(--seg-primaria); stroke-width: 2" marker-end="url(#pt3)"/><rect x="250" y="150" width="124" height="44" rx="8" style="fill: var(--seg-superficie); stroke: var(--seg-primaria); stroke-width: 1.5"/><text x="312" y="177" text-anchor="middle" style="fill: var(--seg-texto); font-size: 15px">Humano audita</text><line x1="334" y1="132" x2="334" y2="148" style="stroke: var(--seg-primaria); stroke-width: 1.5; stroke-dasharray: 5 4"/></svg>
+            <p class="controle-humano">Controle humano: <strong>Nenhum, só auditoria</strong></p>
+          </div>
+          <div>
+            <h3>O que é</h3>
+            <p>O ciclo completo é automatizado; a pessoa define os limites antes e audita depois.</p>
+            <h3>Quando usar</h3>
+            <ul><li>Decisão em milissegundos.</li><li>Escala inviável para revisão humana.</li><li>Risco baixo e limites bem definidos.</li></ul>
+            <h3>Exemplos</h3>
+            <p>Roteirização da frota de entrega em tempo real e alocação de carga no CD, dentro de faixa aprovada.</p>
+          </div>
+        </div>
+        <p class="fragment">Pergunta à sala: em qual dos três níveis vocês colocariam hoje a aprovação de verba de trade da sua regional?</p>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">21</p></div>
       </section>
 
       <section class="section-slide">
@@ -440,7 +521,7 @@
           <li class="fragment">Qual decisão da sua rotina você <strong>nunca</strong> delegaria a um modelo?</li>
           <li class="fragment">E qual você delegaria <strong>amanhã</strong>, se pudesse?</li>
         </ul>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">20</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">23</p></div>
       </section>
 
       <section class="content-slide">
@@ -456,7 +537,7 @@
           <li class="fragment">A jornada: nem pessoas nem IA prontas &rarr; encontra valor &rarr; captura e sustenta &rarr; transcende os limites.</li>
           <li class="fragment">O gargalo está nas pessoas e nos processos, não no modelo.</li>
         </ul>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">21</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">24</p></div>
       </section>
 
       <section class="content-slide">
@@ -472,7 +553,7 @@
           <li class="fragment">O diferencial competitivo é a capacidade de <strong>fazer boas perguntas</strong> e desafiar respostas.</li>
           <li class="fragment">Uso responsável é ativo de reputação, não burocracia.</li>
         </ul>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">22</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">25</p></div>
       </section>
 
       <section class="content-slide">
@@ -487,7 +568,7 @@
           <li class="fragment"><strong>Service as Software:</strong> o mercado troca a unidade de valor, de licença de software para processo resolvido com melhoria quantificável.</li>
           <li class="fragment"><strong>Hiperespecialização:</strong> quem vence ataca processos complexos e específicos, não tudo ao mesmo tempo.</li>
         </ul>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">23</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">26</p></div>
       </section>
 
       <section class="content-slide">
@@ -503,7 +584,7 @@
           <li class="fragment">A pergunta de liderança nunca é "a resposta está certa?", é <strong>"boa para quem, em qual contexto?"</strong>.</li>
         </ul>
         <p class="fragment">Em duplas (3 min): um processo da sua área candidato a copiloto, e um que nunca deveria ser.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">24</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">27</p></div>
       </section>
 
       <section class="quiz-slide">
@@ -530,7 +611,7 @@
                 data-incorrect-msg="Não: mais contexto ajuda, mas sem pedir a origem do número o risco continua.">A versão gratuita da ferramenta limita a precisão dos cálculos numéricos</li>
           </ul>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">25</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">28</p></div>
       </section>
 
       <section class="section-slide">
@@ -557,7 +638,7 @@
           <li>Ela não programa; a fila do Tech Hub é de seis semanas. As ferramentas disponíveis são as mesmas deste módulo.</li>
         </ul>
         <p>Com qual dos cinco personagens o seu papel mais se parece?</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">27</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">30</p></div>
       </section>
 
       <section class="content-slide">
@@ -576,7 +657,7 @@
           <div class="concept-card"><h3>2. Os interesses</h3><p>O que cada um dos cinco personagens ganha ou perde em cada caminho?</p></div>
           <div class="concept-card"><h3>3. As evidências</h3><p>Que dado citado no texto sustenta cada caminho? O que ainda não foi verificado?</p></div>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">28</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">31</p></div>
       </section>
 
       <section class="content-slide">
@@ -596,7 +677,7 @@
           <div class="processo-fase"><h4>6. Implantação</h4><p>Recomendação e adoção. Data Lab e banca.</p></div>
         </div>
         <p>GenAI acelera as fases 1 a 3; não substitui as decisões de cada fase. O projeto do Data Lab percorre o ciclo completo.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">29</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">32</p></div>
       </section>
 
       <section class="content-slide">
@@ -614,7 +695,7 @@
           <div class="concept-card fragment"><h3>5. Transferir</h3><p>Lista do que validar no dataset: a entrada do trabalho no Genie.</p></div>
         </div>
         <p>Fases 1 e 2 do CRISP-DM em uma conversa: entendimento do negócio antes de tocar no dado.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">30</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">33</p></div>
       </section>
 
       <section class="content-slide">
@@ -628,7 +709,7 @@
         <img class="print-shot compacta" src="../assets/img/prints/copilot-resumo-case-crop.jpg" alt="Copilot com o PDF do case carregado, gerando o briefing executivo da decisão">
         <p class="fonte-nota">Fonte: M365 Copilot com o PDF do case anexado</p>
         <p>Compressão de leitura: 8 páginas viram uma. A verificação contra o original continua obrigatória.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">31</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">34</p></div>
       </section>
 
       <section class="content-slide">
@@ -652,7 +733,7 @@
             <p class="fonte-nota fragment">Leitura dos interesses: repertório de vieses do Módulo 1.</p>
           </div>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">32</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">35</p></div>
       </section>
 
       <section class="content-slide">
@@ -666,7 +747,7 @@
         <img class="print-shot" src="../assets/img/prints/copilot-o-que-nao-sabemos-crop.jpg" alt="Copilot listando as validações pendentes no dataset">
         <p class="fonte-nota">Fonte: M365 Copilot, mesmo briefing</p>
         <p class="fragment">Sem acesso ao dataset, o modelo listou como pendências as mesmas duas hipóteses do Exhibit 3. A lista é o passo 5 do roteiro: a entrada do trabalho com o Genie.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">33</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">36</p></div>
       </section>
 
       <section class="content-slide">
@@ -687,7 +768,7 @@
           </div>
         </div>
         <p class="fragment">Híbrido vetado pelo VP. A verba é integralmente consumida por qualquer um dos dois.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">34</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">37</p></div>
       </section>
 
       <section class="content-slide">
@@ -708,7 +789,7 @@
           </div>
         </div>
         <p class="fragment">Os dois cruzamentos estão no dataset e são o exercício desta tarde.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">35</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">38</p></div>
       </section>
 
       <section class="content-slide">
@@ -737,7 +818,7 @@
           </div>
         </div>
         <p class="fragment">Cada ferramenta tem vieses, limites e falhas diferentes; a mesma pergunta pode produzir resultados distintos.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">36</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">39</p></div>
       </section>
 
       <section class="content-slide">
@@ -751,7 +832,7 @@
         <img class="print-shot compacta" src="../assets/img/prints/genie-pergunta-regiao-crop.jpg" alt="Genie respondendo a variação de volume por região sobre a tabela do Coroa Premium, com gráfico gerado">
         <p class="fonte-nota">Fonte: Databricks Genie sobre dev.default.coroa_premium_pdv_performance</p>
         <p>O Genie exibe o SQL gerado; conferir o SQL é a forma de auditar a resposta.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">37</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">40</p></div>
       </section>
 
       <section class="content-slide">
@@ -777,7 +858,7 @@
           </div>
         </div>
         <p>A pergunta era ambígua; o prompt precisa especificar o método de cálculo.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">38</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">41</p></div>
       </section>
 
       <section class="exercise-slide">
@@ -793,7 +874,7 @@
           <li>Anote <strong>uma discrepância ou surpresa</strong>: onde a ferramenta hesitou, agregou errado ou pediu esclarecimento.</li>
         </ol>
         <p><span class="material-symbols-outlined">timer</span> 20 minutos. Cada mesa reporta a surpresa em uma frase.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">39</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">42</p></div>
       </section>
 
       <section class="content-slide">
@@ -810,7 +891,7 @@
           <li class="fragment">Se concentrada: a segmentação do Caminho A passa a ser verificável.</li>
         </ul>
         <p class="fragment">O cruzamento que responde a essa pergunta é o exercício do bloco das 13h30.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">40</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">43</p></div>
       </section>
 
       <section class="section-slide">
@@ -832,7 +913,7 @@
           <li class="fragment">A diferença entre os dois resultados é, potencialmente, a diferença entre o Caminho A e o Caminho B.</li>
         </ul>
         <p class="fragment">Do texto do case: "a escolha do prompt é, em si, parte da análise".</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">42</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">45</p></div>
       </section>
 
       <section class="content-slide">
@@ -868,7 +949,7 @@
             <p>Dados, premissas e vocabulário do negócio.</p>
           </div>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">43</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">46</p></div>
       </section>
 
       <section class="content-slide">
@@ -884,7 +965,7 @@
           <li class="fragment">Informações verdadeiras, mas nenhuma sustenta a decisão A vs B.</li>
         </ul>
         <p class="fragment"><strong>Uma descrição não é uma análise.</strong> Você precisa de um prompt que force uma decisão.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">44</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">47</p></div>
       </section>
 
       <section class="content-slide">
@@ -913,7 +994,7 @@ cada número; termine com a seção "O QUE EU AINDA NÃO SEI".</span>
           <span class="lg-dados">entrada delimitada</span>
         </div>
         <p class="fragment">É o <strong>P1 do caderno</strong>.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">45</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">48</p></div>
       </section>
 
       <section class="content-slide">
@@ -937,7 +1018,7 @@ uniforme entre os PDVs ou concentrada em alguma faixa?
           <span class="lg-restricao">restrição de escopo</span>
         </div>
         <p class="fragment">Formato de saída fixo elimina prosa vaga e torna o resultado comparável entre mesas. É o P2: o teste da H1.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">46</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">49</p></div>
       </section>
 
       <section class="content-slide">
@@ -961,7 +1042,7 @@ anterior.</span> Raciocine passo a passo ANTES de concluir:
           <span class="lg-formato">veredito fechado</span>
         </div>
         <p class="fragment">Chain of Thought + papel adversarial: mitigação direta do viés de confirmação apresentado no Módulo 1.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">47</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">50</p></div>
       </section>
 
       <section class="content-slide">
@@ -977,7 +1058,7 @@ anterior.</span> Raciocine passo a passo ANTES de concluir:
           <li class="fragment"><strong>Verificação cruzada:</strong> o mesmo número em duas ferramentas (Genie e chat). Divergiu? Investigue antes de usar.</li>
           <li class="fragment"><strong>Lacunas explícitas:</strong> incluir a seção "O QUE EU AINDA NÃO SEI" em todo prompt analítico.</li>
         </ul>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">48</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">51</p></div>
       </section>
 
       <section class="exercise-slide">
@@ -994,7 +1075,7 @@ anterior.</span> Raciocine passo a passo ANTES de concluir:
           <li>Responda em uma frase: <strong>a queda é uniforme ou concentrada?</strong> Isso fortalece A ou B?</li>
         </ol>
         <p><span class="material-symbols-outlined">timer</span> 30 minutos + debrief de 10. As mesas comparam cross-tabs.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">49</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">52</p></div>
       </section>
 
       <section class="quiz-slide">
@@ -1021,7 +1102,7 @@ anterior.</span> Raciocine passo a passo ANTES de concluir:
                 data-incorrect-msg="Não: autocrítica audita a conclusão, não formata a saída.">Autocrítica (nível 5)</li>
           </ul>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">50</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">53</p></div>
       </section>
 
       <section class="section-slide">
@@ -1048,7 +1129,7 @@ tiers A e B como comparação; imprimir uma tabela com os três
 valores e uma interpretação em linguagem simples, sem os
 termos "coeficiente" ou "regressão".</code></pre>
         <p class="fragment">É o P3: o teste da H2. O prompt descreve a pergunta, não o código; a sintaxe fica com a IA.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">52</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">55</p></div>
       </section>
 
       <section class="content-slide">
@@ -1071,7 +1152,7 @@ visitas_promotor_mes.</code></pre>
             <li class="fragment">Não é necessário decorar sintaxe; o traceback é a entrada do processo de correção.</li>
           </ul>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">53</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">56</p></div>
       </section>
 
       <section class="content-slide">
@@ -1087,7 +1168,7 @@ visitas_promotor_mes.</code></pre>
           <li class="fragment">Reprodutibilidade transforma uma análise pontual em processo. É o P4 do caderno.</li>
         </ul>
         <p class="fragment">A mesma pergunta retornará no trimestre seguinte; o script responde sem retrabalho.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">54</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">57</p></div>
       </section>
 
       <section class="content-slide">
@@ -1105,7 +1186,7 @@ no máximo 12 linhas para o VP Comercial:
 - uma ressalva honesta do que os dados NÃO mostram.
 Tom: direto, sem jargão, sem adjetivos de entusiasmo.</code></pre>
         <p class="fragment">Último passo do fluxo: transformar a análise em comunicação executiva para a decisão.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">55</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">58</p></div>
       </section>
 
       <section class="exercise-slide">
@@ -1122,7 +1203,7 @@ Tom: direto, sem jargão, sem adjetivos de entusiasmo.</code></pre>
           <li>Extensão para mesas rápidas: gráfico de dispersão visitas x delta por tier, gerado por código.</li>
         </ol>
         <p><span class="material-symbols-outlined">timer</span> 35 minutos. O achado de H2 entra na recomendação final.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">56</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">59</p></div>
       </section>
 
       <section class="section-slide">
@@ -1145,7 +1226,7 @@ Tom: direto, sem jargão, sem adjetivos de entusiasmo.</code></pre>
           <li>Três mesas apresentam em 2 minutos. As demais questionam.</li>
         </ol>
         <p>O entregável do dia é uma <strong>decisão de negócio em linguagem executiva</strong>, não um relatório técnico.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">58</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">61</p></div>
       </section>
 
       <section class="content-slide">
@@ -1163,7 +1244,7 @@ Você é o VP Comercial, cético e pressionado.
 3. Diga o que faria você decidir pelo caminho oposto.
 Depois, reescreva a recomendação incorporando o que sobreviveu.</code></pre>
         <p class="fragment">Auditoria da recomendação antes do comitê; mitiga o viés de confirmação apresentado no Módulo 1.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">59</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">62</p></div>
       </section>
 
       <section class="content-slide">
@@ -1181,7 +1262,7 @@ Depois, reescreva a recomendação incorporando o que sobreviveu.</code></pre>
           <li class="fragment"><strong>P5</strong> iteração + autocrítica &middot; a recomendação auditada</li>
         </ul>
         <p class="fragment">Para cada um: o prompt final, a saída, o que falhou antes, e <strong>quando aquela técnica compensa</strong>. Entrega no fim do dia.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">60</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">63</p></div>
       </section>
 
       <section class="content-slide">
@@ -1196,7 +1277,7 @@ Depois, reescreva a recomendação incorporando o que sobreviveu.</code></pre>
           <li class="fragment"><strong>Data Lab:</strong> o fluxo de hoje (pergunta &rarr; prompt &rarr; verificação &rarr; recomendação) é o que os grupos repetem no projeto real da Ambev.</li>
           <li class="fragment"><strong>Banca com VPs:</strong> a mesma exigência de Castellani: recomendação sustentada por dados, não por intuição.</li>
         </ul>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">61</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">64</p></div>
       </section>
 
       <section class="content-slide">
@@ -1214,7 +1295,7 @@ Depois, reescreva a recomendação incorporando o que sobreviveu.</code></pre>
           <li>Kahneman, D. <em>Rápido e Devagar: duas formas de pensar</em>. (base do Módulo 1, retomada aqui)</li>
           <li>Inteli Exec. Caso Coroa Premium, DSDM-AMBEV-MOD2-001, janeiro de 2026.</li>
         </ol>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">62</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">65</p></div>
       </section>
 
       <section class="end-slide">
