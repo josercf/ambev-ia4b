@@ -25,7 +25,6 @@
         </div>
       </section>
 
-      <!-- 1b. Apresentação do professor -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -62,7 +61,6 @@
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">2</p></div>
       </section>
 
-      <!-- 2. Agenda -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -88,7 +86,6 @@
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">3</p></div>
       </section>
 
-      <!-- 3. Resgate do Módulo 1 -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -105,14 +102,12 @@
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">4</p></div>
       </section>
 
-      <!-- 4. Seção: Fundamentos -->
       <section class="section-slide">
         <div class="accent-bar"></div>
         <h2>Fundamentos de GenAI</h2>
         <h3>09h00 &middot; O vocabulário mínimo para o resto do dia</h3>
       </section>
 
-      <!-- 5. Como um LLM funciona -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -138,66 +133,73 @@
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">6</p></div>
       </section>
 
-      <!-- 6. Tokenização -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
         <div class="slide-title-area">
           <div class="accent-bar"></div>
-          <h2>Tokenização: como o modelo lê a frase</h2>
+          <h2>O tokenizer fatia 57 caracteres em 18 tokens</h2>
         </div>
-        <p>A frase abaixo, fatiada como um modelo a recebe: cada segmento vira um ID numérico do vocabulário (IDs ilustrativos).</p>
-        <div class="token-linha"><div class="token-col"><span class="token-chip t1">A</span><span class="token-id">32</span></div><div class="token-col"><span class="token-chip t2"> Ardor</span><span class="token-id">94012</span></div><div class="token-col"><span class="token-chip t3"> Lager</span><span class="token-id">63001</span></div><div class="token-col"><span class="token-chip t1"> cres</span><span class="token-id">1877</span></div><div class="token-col"><span class="token-chip t2">ceu</span><span class="token-id">21403</span></div><div class="token-col"><span class="token-chip t3"> 22</span><span class="token-id">1421</span></div><div class="token-col"><span class="token-chip t1">,</span><span class="token-id">11</span></div><div class="token-col"><span class="token-chip t2">4</span><span class="token-id">19</span></div><div class="token-col"><span class="token-chip t3">%</span><span class="token-id">4</span></div><div class="token-col"><span class="token-chip t1"> no</span><span class="token-id">402</span></div><div class="token-col"><span class="token-chip t2"> canal</span><span class="token-id">9761</span></div><div class="token-col"><span class="token-chip t3"> alimentar</span><span class="token-id">77120</span></div><div class="token-col"><span class="token-chip t1"> premium</span><span class="token-id">18540</span></div></div>
-        <div class="stat-tiles" style="grid-template-columns: repeat(3, 1fr);">
-          <div class="stat-tile"><p class="stat-numero">13</p><p class="stat-rotulo">tokens nesta frase</p></div>
-          <div class="stat-tile"><p class="stat-numero">44</p><p class="stat-rotulo">caracteres</p></div>
-          <div class="stat-tile destaque"><p class="stat-numero">tokens</p><p class="stat-rotulo">unidade de custo e de limite de contexto</p></div>
-        </div>
-        <p>Palavras fora do vocabulário comum (marcas, jargão interno) fragmentam em mais tokens: contexto interno ocupa mais espaço e custa mais.</p>
+
+        <p>Três frases curtas, uma em cada idioma, submetidas ao tokenizer do GPT-4o. O corte não respeita palavra nem fronteira de idioma.</p>
+        <img class="print-shot" src="../assets/img/prints/openai-tokenizer.jpg" alt="Tokenizer da OpenAI marcando 18 tokens e 57 caracteres para as frases eu gosto de batata, he looks like a bat e el batallón avanzó, com cada token destacado em uma cor">
+        <p class="fonte-nota">Fonte: platform.openai.com/tokenizer, tokenizador do GPT-4o</p>
+        <p><span class="mono">batata</span> vira dois tokens, <span class="mono">batallón</span> vira três. Palavras fora do vocabulário comum, como marca e jargão interno, fragmentam em mais tokens: contexto interno ocupa mais espaço na janela e custa mais por chamada.</p>
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">7</p></div>
       </section>
 
-      <!-- 6b. Embeddings -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
         <div class="slide-title-area">
           <div class="accent-bar"></div>
-          <h2>Embeddings: representação vetorial</h2>
+          <h2>Palavras semelhantes ficam próximas no vetor</h2>
         </div>
+
         <div class="side-by-side">
           <div>
-            <table class="embed-tabela">
-              <tr><th>palavra</th><th>bebida</th><th>premium</th><th>logística</th><th>on-trade</th></tr>
-              <tr><td>pilsen</td><td>0,9</td><td>0,4</td><td>-0,7</td><td>0,6</td></tr>
-              <tr><td>lager</td><td>0,9</td><td>0,5</td><td>-0,6</td><td>0,6</td></tr>
-              <tr><td>IPA</td><td>0,8</td><td>0,8</td><td>-0,7</td><td>0,5</td></tr>
-              <tr><td>frete</td><td>-0,6</td><td>-0,3</td><td>0,9</td><td>-0,2</td></tr>
-            </table>
-            <p class="fragment" style="margin-top: 10px;">Cada palavra vira um vetor de números; proximidade no espaço equivale a proximidade de significado. Dimensões ilustrativas.</p>
+            <img class="print-shot compacta" src="../assets/img/embeddings-espaco-vetorial.png" alt="Diagrama com as palavras man, woman, king e queen convertidas em vetores de sete dimensões e projetadas em duas dimensões">
           </div>
           <div>
-            <svg viewBox="0 0 340 240" role="img" aria-label="Projeção dos vetores em duas dimensões" style="width: 100%; background: var(--seg-superficie); border-radius: 8px;">
-              <line x1="30" y1="210" x2="320" y2="210" style="stroke: var(--seg-borda); stroke-width: 1.5"/>
-              <line x1="30" y1="210" x2="30" y2="20" style="stroke: var(--seg-borda); stroke-width: 1.5"/>
-              <circle cx="95" cy="70" r="7" style="fill: var(--seg-secundaria)"/>
-              <circle cx="120" cy="88" r="7" style="fill: var(--seg-secundaria)"/>
-              <circle cx="145" cy="55" r="7" style="fill: var(--seg-secundaria)"/>
-              <circle cx="275" cy="175" r="7" style="fill: var(--seg-destaque)"/>
-              <text x="70" y="55" style="fill: var(--seg-texto); font-size: 15px">pilsen</text>
-              <text x="128" y="105" style="fill: var(--seg-texto); font-size: 15px">lager</text>
-              <text x="155" y="48" style="fill: var(--seg-texto); font-size: 15px">IPA</text>
-              <text x="255" y="198" style="fill: var(--seg-texto); font-size: 15px">frete</text>
-              <ellipse cx="120" cy="72" rx="62" ry="42" style="fill: none; stroke: var(--seg-primaria); stroke-dasharray: 5 4; stroke-width: 1.5"/>
-              <text x="60" y="135" style="fill: var(--seg-primaria); font-size: 13px">mesmo assunto</text>
-            </svg>
+            <p>Cada palavra vira um vetor denso de poucas dimensões, em vez de um vetor esparso de altíssima dimensão. Dimensões e valores do diagrama são ilustrativos.</p>
+            <p>Elementos semelhantes ficam próximos no espaço vetorial, e a distância entre <em>man</em> e <em>woman</em> repete a distância entre <em>king</em> e <em>queen</em>.</p>
+            <p class="fonte-nota">Fonte: Arize AI, <span class="mono">embeddings: meaning, examples and how to compute</span> (fev/2023)</p>
           </div>
         </div>
-        <p>Implicação: o modelo aproxima <em>sell-out incremental</em> de <em>volume atribuível</em>, mas não conhece o jargão interno da companhia. O vocabulário da Ambev entra pelo prompt.</p>
+        <p>Implicação para o case: o modelo aproxima <em>sell-out incremental</em> de <em>volume vendido</em> sem que ninguém tenha definido a equivalência. A definição da métrica precisa vir do prompt.</p>
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">8</p></div>
       </section>
 
-      <!-- 7. Alucinação -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>O modelo sorteia cada token da resposta</h2>
+        </div>
+
+        <div class="side-by-side">
+          <div>
+            <h3>Primeira rodada</h3>
+            <p class="fonte-nota">Entrada: <span class="mono">Olá, tudo bem com você?</span></p>
+            <div class="token-linha">
+              <span class="token-chip t2">Tudo</span><span class="token-chip">talvez</span><span class="token-chip">sim</span><span class="token-chip">navio</span><span class="token-chip">batata</span>
+            </div>
+            <p>O verde marca o token sorteado. Os demais estavam na mesma distribuição e podiam ter saído.</p>
+          </div>
+          <div class="fragment">
+            <h3>Segunda rodada</h3>
+            <p class="fonte-nota">Entrada: <span class="mono">Olá, tudo bem com você? Tudo</span></p>
+            <div class="token-linha">
+              <span class="token-chip t2">beleza</span><span class="token-chip">ótimo</span><span class="token-chip">bem</span><span class="token-chip">água</span><span class="token-chip">hotel</span>
+            </div>
+            <p>O token escolhido entra na entrada da rodada seguinte, e a distribuição inteira muda.</p>
+          </div>
+        </div>
+        <p class="fragment">Consequência prática: a mesma pergunta, feita duas vezes, pode produzir respostas diferentes. Análise que precisa ser auditável não pode depender de uma única execução.</p>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">9</p></div>
+      </section>
+
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -211,10 +213,139 @@
           <li class="fragment">Perguntas vagas produzem respostas plausíveis e vazias; perguntas verificáveis produzem respostas auditáveis.</li>
         </ul>
         <p class="fragment">Critério de trabalho: todo número citado deve ter coluna e filtro de origem identificáveis no dado.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">9</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">10</p></div>
       </section>
 
-      <!-- 8. Sprints vs maratonas -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>A janela útil é 60% a 70% do anunciado</h2>
+        </div>
+
+        <div class="side-by-side">
+          <div>
+            <h3>O que é</h3>
+            <p>Tudo o que o modelo enxerga em uma única conversa: o seu pedido, os arquivos anexados, o histórico e a própria resposta.</p>
+            <h3>Para que serve</h3>
+            <ul>
+              <li>Analisar contratos e relatórios inteiros sem fatiar o documento.</li>
+              <li>Manter o fio da meada em conversas longas e em agentes que trabalham por horas.</li>
+              <li>Comparar muitas fontes de uma vez, sem perder o começo.</li>
+            </ul>
+          </div>
+          <div>
+            <table class="embed-tabela">
+              <tr><th>Modelo</th><th>Janela anunciada</th></tr>
+              <tr><td>Llama 4 Scout</td><td>10 milhões</td></tr>
+              <tr><td>Claude Opus 5 e Sonnet 5</td><td>1 milhão</td></tr>
+              <tr><td>GPT-5.5</td><td>1 milhão</td></tr>
+              <tr><td>Gemini 3.1 Pro</td><td>1 milhão</td></tr>
+            </table>
+            <p>Na prática a qualidade cai antes do limite: estudos independentes apontam uso confiável de 60% a 70% do que é anunciado.</p>
+          </div>
+        </div>
+        <p class="fonte-nota">Fontes: documentação dos provedores e comparativos de janela de contexto, consultados em setembro de 2026</p>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">11</p></div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Cinco Harry Potter ocupam 956 mil tokens</h2>
+        </div>
+
+        <div class="side-by-side">
+          <div>
+            <table class="embed-tabela">
+              <tr><th>Livro</th><th>Palavras</th></tr>
+              <tr><td>Pedra Filosofal</td><td>76.944</td></tr>
+              <tr><td>Câmara Secreta</td><td>85.141</td></tr>
+              <tr><td>Prisioneiro de Azkaban</td><td>107.253</td></tr>
+              <tr><td>Cálice de Fogo</td><td>190.637</td></tr>
+              <tr><td>Ordem da Fênix</td><td>257.045</td></tr>
+              <tr><th>Total</th><th>717.020</th></tr>
+            </table>
+          </div>
+          <div>
+            <p>Janela de contexto de 1 milhão de tokens. Cada quadrado vale 10 mil.</p>
+            <svg viewBox="-4 -4 408 108" role="img" aria-label="Grade de 100 quadrados representando uma janela de 1 milhão de tokens, com 96 quadrados ocupados pelos cinco primeiros livros" style="width: 100%"><rect x="0" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="20" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="40" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="60" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="80" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="100" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="120" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="140" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="160" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="180" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="200" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="220" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="240" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="260" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="280" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="300" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="320" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="340" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="360" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="380" y="0" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="0" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="20" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="40" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="60" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="80" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="100" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="120" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="140" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="160" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="180" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="200" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="220" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="240" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="260" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="280" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="300" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="320" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="340" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="360" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="380" y="20" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="0" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="20" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="40" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="60" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="80" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="100" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="120" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="140" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="160" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="180" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="200" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="220" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="240" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="260" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="280" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="300" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="320" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="340" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="360" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="380" y="40" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="0" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="20" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="40" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="60" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="80" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="100" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="120" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="140" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="160" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="180" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="200" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="220" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="240" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="260" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="280" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="300" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="320" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="340" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="360" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="380" y="60" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="0" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="20" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="40" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="60" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="80" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="100" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="120" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="140" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="160" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="180" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="200" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="220" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="240" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="260" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="280" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="300" y="80" width="16" height="16" rx="3" style="fill: var(--seg-secundaria)"/><rect x="320" y="80" width="16" height="16" rx="3" style="fill: var(--seg-borda)"/><rect x="340" y="80" width="16" height="16" rx="3" style="fill: var(--seg-borda)"/><rect x="360" y="80" width="16" height="16" rx="3" style="fill: var(--seg-borda)"/><rect x="380" y="80" width="16" height="16" rx="3" style="fill: var(--seg-borda)"/></svg>
+            <p>Os cinco livros ocupam 96 dos 100 quadrados, cerca de 956 mil tokens. Sobra pouco espaço para a sua pergunta e para a resposta.</p>
+          </div>
+        </div>
+        <p class="fonte-nota">A série completa tem 1.084.170 palavras, cerca de 1,45 milhão de tokens: os sete livros não cabem em uma janela de 1 milhão.</p>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">12</p></div>
+      </section>
+
+      <section class="exercise-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Estimativa de consumo em 30 dias</h2>
+        </div>
+
+        <p>Levantem a mão na faixa que vocês acham que consomem. Vale o uso pessoal e o do time.</p>
+        <table class="embed-tabela">
+          <tr><th>Faixa</th><th>Tokens em 30 dias</th><th>Perfil de uso</th></tr>
+          <tr><td>A</td><td>Até 1 milhão</td><td>Uso pontual, algumas conversas por semana.</td></tr>
+          <tr><td>B</td><td>1 a 100 milhões</td><td>Uso diário para escrita, análise e apoio à decisão.</td></tr>
+          <tr><td>C</td><td>100 milhões a 1 bilhão</td><td>Uso intenso, com arquivos grandes e times inteiros.</td></tr>
+          <tr><td>D</td><td>Mais de 1 bilhão</td><td>Agentes rodando sozinhos, em produção.</td></tr>
+        </table>
+        <p><span class="material-symbols-outlined">front_hand</span> Guardem o palpite. O próximo slide traz o consumo real de 30 dias de um usuário intenso e quanto ele custaria na API.</p>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">13</p></div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>O uso real custaria 24x a assinatura</h2>
+        </div>
+
+        <div class="side-by-side">
+          <div>
+            <img class="print-shot" src="../assets/img/prints/claude-consumo-30d.jpg" alt="Painel de consumo do Claude mostrando 5,4 bilhões de tokens e custo de 4.844,65 dólares em 30 dias">
+          </div>
+          <div>
+            <div class="stat-tiles" style="grid-template-columns: repeat(2, 1fr);">
+              <div class="stat-tile"><p class="stat-numero">US$ 200</p><p class="stat-rotulo">por mês na assinatura Max 20x</p></div>
+              <div class="stat-tile destaque"><p class="stat-numero">US$ 4.844</p><p class="stat-rotulo">custo equivalente em API nos últimos 30 dias</p></div>
+            </div>
+            <p><strong>5,4 bilhões</strong> de tokens processados em 30 dias. Modelo mais usado: <span class="mono">claude-opus-4-8</span>.</p>
+            <p>A assinatura absorve o excedente enquanto o provedor decide absorvê-lo. É esse subsídio que o próximo slide coloca em questão.</p>
+          </div>
+        </div>
+        <p class="fonte-nota">Estimativa a taxas de API com base nos logs locais do Claude, capturada em 15/07/2026</p>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">14</p></div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>O paradoxo do modelo assento + token</h2>
+        </div>
+
+        <p>Quanto mais você usa, mais paga. E os melhores agentes de programação são exatamente os que fazem você usar muito, porque entregam resultado.</p>
+        <ol class="exercise-steps">
+          <li class="fragment">A ferramenta é adotada porque é boa.</li>
+          <li class="fragment">Sendo boa, todo o time começa a usar.</li>
+          <li class="fragment">O time usa intensamente, como a ferramenta foi feita para ser usada.</li>
+          <li class="fragment">A conta chega no fim do mês.</li>
+          <li class="fragment">O gestor entra em pânico.</li>
+          <li class="fragment">O acesso é cortado ou restringido.</li>
+        </ol>
+        <p class="fragment">É o fim do &ldquo;ilimitado&rdquo; por outro ângulo: a conta fora do orçamento aparece no terceiro mês.</p>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">15</p></div>
+      </section>
+
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -232,10 +363,9 @@
             <p>Tarefas de múltiplas etapas: cruzar três fontes, testar hipóteses, montar recomendação. Exigem método, iteração e verificação. O caso de hoje é uma maratona.</p>
           </div>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">10</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">16</p></div>
       </section>
 
-      <!-- 9. Níveis de uso -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -262,10 +392,9 @@
           </div>
         </div>
         <p class="fragment">Hoje operamos assistentes e copilotos. Agentes são conversa para o fim do programa.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">11</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">17</p></div>
       </section>
 
-      <!-- 10. Autonomia -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -288,17 +417,15 @@
           </div>
         </div>
         <p class="fragment">Pergunta à sala: onde está o corte de preço promocional? E a reposição de estoque no PDV?</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">12</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">18</p></div>
       </section>
 
-      <!-- 11. Seção: Tendências -->
       <section class="section-slide">
         <div class="accent-bar"></div>
         <h2>Tendências em IA e o Futuro das Organizações</h2>
         <h3>09h45 &middot; O porquê estratégico antes do dia técnico</h3>
       </section>
 
-      <!-- 12. Otimismo ou apocalipse -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -312,10 +439,9 @@
           <li class="fragment">Qual decisão da sua rotina você <strong>nunca</strong> delegaria a um modelo?</li>
           <li class="fragment">E qual você delegaria <strong>amanhã</strong>, se pudesse?</li>
         </ul>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">14</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">20</p></div>
       </section>
 
-      <!-- 13. Onde as empresas estão -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -329,10 +455,9 @@
           <li class="fragment">A jornada: nem pessoas nem IA prontas &rarr; encontra valor &rarr; captura e sustenta &rarr; transcende os limites.</li>
           <li class="fragment">O gargalo está nas pessoas e nos processos, não no modelo.</li>
         </ul>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">15</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">21</p></div>
       </section>
 
-      <!-- 14. AI First People Always -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -346,10 +471,9 @@
           <li class="fragment">O diferencial competitivo é a capacidade de <strong>fazer boas perguntas</strong> e desafiar respostas.</li>
           <li class="fragment">Uso responsável é ativo de reputação, não burocracia.</li>
         </ul>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">16</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">22</p></div>
       </section>
 
-      <!-- 16. Agent boss / Service as Software -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -362,10 +486,9 @@
           <li class="fragment"><strong>Service as Software:</strong> o mercado troca a unidade de valor, de licença de software para processo resolvido com melhoria quantificável.</li>
           <li class="fragment"><strong>Hiperespecialização:</strong> quem vence ataca processos complexos e específicos, não tudo ao mesmo tempo.</li>
         </ul>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">17</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">23</p></div>
       </section>
 
-      <!-- 17. WEIRD -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -379,10 +502,9 @@
           <li class="fragment">A pergunta de liderança nunca é "a resposta está certa?", é <strong>"boa para quem, em qual contexto?"</strong>.</li>
         </ul>
         <p class="fragment">Em duplas (3 min): um processo da sua área candidato a copiloto, e um que nunca deveria ser. Vendas e Supply na mesma dupla, de propósito.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">18</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">24</p></div>
       </section>
 
-      <!-- 18. Quiz 1 -->
       <section class="quiz-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -407,17 +529,15 @@
                 data-incorrect-msg="Não: mais contexto ajuda, mas sem pedir a origem do número o risco continua.">A versão gratuita da ferramenta limita a precisão dos cálculos numéricos</li>
           </ul>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">19</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">25</p></div>
       </section>
 
-      <!-- 19. Seção: Ferramentas -->
       <section class="section-slide">
         <div class="accent-bar"></div>
         <h2>Ferramentas de IA e Dados</h2>
         <h3>11h00 &middot; O case entra em cena</h3>
       </section>
 
-      <!-- 20. O caso -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -436,10 +556,9 @@
           <li>Ela não programa; a fila do Tech Hub é de seis semanas. As ferramentas disponíveis são as mesmas deste módulo.</li>
         </ul>
         <p>Com qual dos cinco personagens o seu papel mais se parece?</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">21</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">27</p></div>
       </section>
 
-      <!-- 20b. Leitura do case -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -456,10 +575,9 @@
           <div class="concept-card"><h3>2. Os interesses</h3><p>O que cada um dos cinco personagens ganha ou perde em cada caminho?</p></div>
           <div class="concept-card"><h3>3. As evidências</h3><p>Que dado citado no texto sustenta cada caminho? O que ainda não foi verificado?</p></div>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">22</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">28</p></div>
       </section>
 
-      <!-- 22b. CRISP-DM -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -477,10 +595,9 @@
           <div class="processo-fase"><h4>6. Implantação</h4><p>Recomendação e adoção. Data Lab e banca.</p></div>
         </div>
         <p>GenAI acelera as fases 1 a 3; não substitui as decisões de cada fase. O projeto do Data Lab percorre o ciclo completo.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">23</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">29</p></div>
       </section>
 
-      <!-- 25b. Roteiro de análise com Copilot -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -496,10 +613,9 @@
           <div class="concept-card fragment"><h3>5. Transferir</h3><p>Lista do que validar no dataset: a entrada do trabalho no Genie.</p></div>
         </div>
         <p>Fases 1 e 2 do CRISP-DM em uma conversa: entendimento do negócio antes de tocar no dado.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">24</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">30</p></div>
       </section>
 
-      <!-- 26. Copilot resumo do case -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -511,10 +627,9 @@
         <img class="print-shot compacta" src="../assets/img/prints/copilot-resumo-case-crop.jpg" alt="Copilot com o PDF do case carregado, gerando o briefing executivo da decisão">
         <p class="fonte-nota">Fonte: M365 Copilot com o PDF do case anexado</p>
         <p>Compressão de leitura: 8 páginas viram uma. A verificação contra o original continua obrigatória.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">25</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">31</p></div>
       </section>
 
-      <!-- 27. Copilot stakeholders -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -536,10 +651,9 @@
             <p class="fonte-nota fragment">Leitura dos interesses: repertório de vieses do Módulo 1.</p>
           </div>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">26</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">32</p></div>
       </section>
 
-      <!-- 27b. Copilot aponta o que falta validar -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -551,10 +665,9 @@
         <img class="print-shot" src="../assets/img/prints/copilot-o-que-nao-sabemos-crop.jpg" alt="Copilot listando as validações pendentes no dataset">
         <p class="fonte-nota">Fonte: M365 Copilot, mesmo briefing</p>
         <p class="fragment">Sem acesso ao dataset, o modelo listou como pendências as mesmas duas hipóteses do Exhibit 3. A lista é o passo 5 do roteiro: a entrada do trabalho com o Genie.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">27</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">33</p></div>
       </section>
 
-      <!-- 21. A bifurcação -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -573,10 +686,9 @@
           </div>
         </div>
         <p class="fragment">Híbrido vetado pelo VP. A verba é integralmente consumida por qualquer um dos dois.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">28</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">34</p></div>
       </section>
 
-      <!-- 22. As duas hipóteses -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -595,10 +707,9 @@
           </div>
         </div>
         <p class="fragment">Os dois cruzamentos estão no dataset e são o exercício desta tarde.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">29</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">35</p></div>
       </section>
 
-      <!-- 23. Menu de ferramentas -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -625,10 +736,9 @@
           </div>
         </div>
         <p class="fragment">Cada ferramenta tem vieses, limites e falhas diferentes; a mesma pergunta pode produzir resultados distintos.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">30</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">36</p></div>
       </section>
 
-      <!-- 24. Genie na prática -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -640,10 +750,9 @@
         <img class="print-shot compacta" src="../assets/img/prints/genie-pergunta-regiao-crop.jpg" alt="Genie respondendo a variação de volume por região sobre a tabela do Coroa Premium, com gráfico gerado">
         <p class="fonte-nota">Fonte: Databricks Genie sobre dev.default.coroa_premium_pdv_performance</p>
         <p>O Genie exibe o SQL gerado; conferir o SQL é a forma de auditar a resposta.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">31</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">37</p></div>
       </section>
 
-      <!-- 25. A armadilha do delta médio -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -667,10 +776,9 @@
           </div>
         </div>
         <p>A pergunta era ambígua; o prompt precisa especificar o método de cálculo.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">32</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">38</p></div>
       </section>
 
-      <!-- 28. Hands-on 1 -->
       <section class="exercise-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -684,10 +792,9 @@
           <li>Anote <strong>uma discrepância ou surpresa</strong>: onde a ferramenta hesitou, agregou errado ou pediu esclarecimento.</li>
         </ol>
         <p><span class="material-symbols-outlined">timer</span> 20 minutos. Cada mesa reporta a surpresa em uma frase.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">33</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">39</p></div>
       </section>
 
-      <!-- 29. Fechamento pré-almoço -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -702,17 +809,15 @@
           <li class="fragment">Se concentrada: a segmentação do Caminho A passa a ser verificável.</li>
         </ul>
         <p class="fragment">O cruzamento que responde a essa pergunta é o exercício do bloco das 13h30.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">34</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">40</p></div>
       </section>
 
-      <!-- 30. Seção: Engenharia de Prompt -->
       <section class="section-slide">
         <div class="accent-bar"></div>
         <h2>Engenharia de Prompt</h2>
         <h3>13h30 &middot; Do nível 0 ao nível 3, com o case na mão</h3>
       </section>
 
-      <!-- 31. Tese do bloco -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -726,10 +831,9 @@
           <li class="fragment">A diferença entre os dois resultados é, potencialmente, a diferença entre o Caminho A e o Caminho B.</li>
         </ul>
         <p class="fragment">Do texto do case: "a escolha do prompt é, em si, parte da análise".</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">36</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">42</p></div>
       </section>
 
-      <!-- 32. CREATE -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -763,10 +867,9 @@
             <p>Dados, premissas e vocabulário do negócio.</p>
           </div>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">37</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">43</p></div>
       </section>
 
-      <!-- 33. Nível 0 -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -780,10 +883,9 @@
           <li class="fragment">Informações verdadeiras, mas nenhuma sustenta a decisão A vs B.</li>
         </ul>
         <p class="fragment"><strong>Uma descrição não é uma análise.</strong> Você precisa de um prompt que force uma decisão.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">38</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">44</p></div>
       </section>
 
-      <!-- 34. Nível 1 -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -810,10 +912,9 @@ cada número; termine com a seção "O QUE EU AINDA NÃO SEI".</span>
           <span class="lg-dados">entrada delimitada</span>
         </div>
         <p class="fragment">É o <strong>P1 do caderno</strong>.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">39</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">45</p></div>
       </section>
 
-      <!-- 35. Nível 2 -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -835,10 +936,9 @@ uniforme entre os PDVs ou concentrada em alguma faixa?
           <span class="lg-restricao">restrição de escopo</span>
         </div>
         <p class="fragment">Formato de saída fixo elimina prosa vaga e torna o resultado comparável entre mesas. É o P2: o teste da H1.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">40</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">46</p></div>
       </section>
 
-      <!-- 36. Nível 3 -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -860,10 +960,9 @@ anterior.</span> Raciocine passo a passo ANTES de concluir:
           <span class="lg-formato">veredito fechado</span>
         </div>
         <p class="fragment">Chain of Thought + papel adversarial: mitigação direta do viés de confirmação apresentado no Módulo 1.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">41</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">47</p></div>
       </section>
 
-      <!-- 37. Mitigação de alucinações -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -877,10 +976,9 @@ anterior.</span> Raciocine passo a passo ANTES de concluir:
           <li class="fragment"><strong>Verificação cruzada:</strong> o mesmo número em duas ferramentas (Genie e chat). Divergiu? Investigue antes de usar.</li>
           <li class="fragment"><strong>Lacunas explícitas:</strong> incluir a seção "O QUE EU AINDA NÃO SEI" em todo prompt analítico.</li>
         </ul>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">42</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">48</p></div>
       </section>
 
-      <!-- 38. Hands-on 2 -->
       <section class="exercise-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -895,10 +993,9 @@ anterior.</span> Raciocine passo a passo ANTES de concluir:
           <li>Responda em uma frase: <strong>a queda é uniforme ou concentrada?</strong> Isso fortalece A ou B?</li>
         </ol>
         <p><span class="material-symbols-outlined">timer</span> 30 minutos + debrief de 10. As mesas comparam cross-tabs.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">43</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">49</p></div>
       </section>
 
-      <!-- 39. Quiz 2 -->
       <section class="quiz-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -923,17 +1020,15 @@ anterior.</span> Raciocine passo a passo ANTES de concluir:
                 data-incorrect-msg="Não: autocrítica audita a conclusão, não formata a saída.">Autocrítica (nível 5)</li>
           </ul>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">44</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">50</p></div>
       </section>
 
-      <!-- 40. Seção: Python -->
       <section class="section-slide">
         <div class="accent-bar"></div>
         <h2>Do zero ao código</h2>
         <h3>14h45 &middot; Python via GenAI, sem escrever Python</h3>
       </section>
 
-      <!-- 41. Pergunta vira código -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -952,10 +1047,9 @@ tiers A e B como comparação; imprimir uma tabela com os três
 valores e uma interpretação em linguagem simples, sem os
 termos "coeficiente" ou "regressão".</code></pre>
         <p class="fragment">É o P3: o teste da H2. O prompt descreve a pergunta, não o código; a sintaxe fica com a IA.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">46</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">52</p></div>
       </section>
 
-      <!-- 42. Debugging -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -976,10 +1070,9 @@ visitas_promotor_mes.</code></pre>
             <li class="fragment">Não é necessário decorar sintaxe; o traceback é a entrada do processo de correção.</li>
           </ul>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">47</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">53</p></div>
       </section>
 
-      <!-- 43. Excel ao script -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -993,10 +1086,9 @@ visitas_promotor_mes.</code></pre>
           <li class="fragment">Reprodutibilidade transforma uma análise pontual em processo. É o P4 do caderno.</li>
         </ul>
         <p class="fragment">A mesma pergunta retornará no trimestre seguinte; o script responde sem retrabalho.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">48</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">54</p></div>
       </section>
 
-      <!-- 44. Relatório executivo -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -1012,10 +1104,9 @@ no máximo 12 linhas para o VP Comercial:
 - uma ressalva honesta do que os dados NÃO mostram.
 Tom: direto, sem jargão, sem adjetivos de entusiasmo.</code></pre>
         <p class="fragment">Último passo do fluxo: transformar a análise em comunicação executiva para a decisão.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">49</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">55</p></div>
       </section>
 
-      <!-- 45. Hands-on 3 -->
       <section class="exercise-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -1030,17 +1121,15 @@ Tom: direto, sem jargão, sem adjetivos de entusiasmo.</code></pre>
           <li>Extensão para mesas rápidas: gráfico de dispersão visitas x delta por tier, gerado por código.</li>
         </ol>
         <p><span class="material-symbols-outlined">timer</span> 35 minutos. O achado de H2 entra na recomendação final.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">50</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">56</p></div>
       </section>
 
-      <!-- 46. Seção: Atividade prática -->
       <section class="section-slide">
         <div class="accent-bar"></div>
         <h2>Atividade prática</h2>
         <h3>16h15 &middot; A recomendação de Beatriz</h3>
       </section>
 
-      <!-- 47. A recomendação -->
       <section class="exercise-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -1055,10 +1144,9 @@ Tom: direto, sem jargão, sem adjetivos de entusiasmo.</code></pre>
           <li>Três mesas apresentam em 2 minutos. As demais questionam.</li>
         </ol>
         <p>O entregável do dia é uma <strong>decisão de negócio em linguagem executiva</strong>, não um relatório técnico.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">52</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">58</p></div>
       </section>
 
-      <!-- 48. P5 autocrítica -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -1074,10 +1162,9 @@ Você é o VP Comercial, cético e pressionado.
 3. Diga o que faria você decidir pelo caminho oposto.
 Depois, reescreva a recomendação incorporando o que sobreviveu.</code></pre>
         <p class="fragment">Auditoria da recomendação antes do comitê; mitiga o viés de confirmação apresentado no Módulo 1.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">53</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">59</p></div>
       </section>
 
-      <!-- 49. Caderno de prompts -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -1093,10 +1180,9 @@ Depois, reescreva a recomendação incorporando o que sobreviveu.</code></pre>
           <li class="fragment"><strong>P5</strong> iteração + autocrítica &middot; a recomendação auditada</li>
         </ul>
         <p class="fragment">Para cada um: o prompt final, a saída, o que falhou antes, e <strong>quando aquela técnica compensa</strong>. Entrega no fim do dia.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">54</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">60</p></div>
       </section>
 
-      <!-- 50. Amarração -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -1109,10 +1195,9 @@ Depois, reescreva a recomendação incorporando o que sobreviveu.</code></pre>
           <li class="fragment"><strong>Data Lab:</strong> o fluxo de hoje (pergunta &rarr; prompt &rarr; verificação &rarr; recomendação) é o que os grupos repetem no projeto real da Ambev.</li>
           <li class="fragment"><strong>Banca com VPs:</strong> a mesma exigência de Castellani: recomendação sustentada por dados, não por intuição.</li>
         </ul>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">55</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">61</p></div>
       </section>
 
-      <!-- 51. Referências -->
       <section class="content-slide">
         <div class="top-bar"></div>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
@@ -1128,10 +1213,9 @@ Depois, reescreva a recomendação incorporando o que sobreviveu.</code></pre>
           <li>Kahneman, D. <em>Rápido e Devagar: duas formas de pensar</em>. (base do Módulo 1, retomada aqui)</li>
           <li>Inteli Exec. Caso Coroa Premium, DSDM-AMBEV-MOD2-001, janeiro de 2026.</li>
         </ol>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">56</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">62</p></div>
       </section>
 
-      <!-- 52. Encerramento -->
       <section class="end-slide">
         <h1>Encerramento do Módulo 2</h1>
         <h3>Amanhã: Análise Descritiva, 08h30<br>Data Science for Decision Makers &middot; Inteli Exec &middot; Ambev</h3>
