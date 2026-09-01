@@ -907,12 +907,14 @@
           <div class="accent-bar"></div>
           <h2>Prompts diferentes, análises diferentes</h2>
         </div>
+
         <ul>
           <li class="fragment">Pedir "a queda média por região" produz um resultado.</li>
           <li class="fragment">Pedir "o cross-tab de delta por faixa de concorrentes" produz outro.</li>
           <li class="fragment">A diferença entre os dois resultados é, potencialmente, a diferença entre o Caminho A e o Caminho B.</li>
         </ul>
         <p class="fragment">Do texto do case: "a escolha do prompt é, em si, parte da análise".</p>
+        <p class="fragment">Os próximos slides sobem do nível 0 ao nível 3, e cada degrau existe porque o anterior não fechou a pergunta. No caminho, a H1 e a H2 ficam testadas.</p>
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">45</p></div>
       </section>
 
@@ -923,32 +925,17 @@
           <div class="accent-bar"></div>
           <h2>Checklist CREATE</h2>
         </div>
-        <div class="concept-cards">
-          <div class="concept-card fragment">
-            <h3>C &middot; Character</h3>
-            <p>Que papel a IA assume: analista de trade, auditor cético, redator executivo.</p>
-          </div>
-          <div class="concept-card fragment">
-            <h3>R &middot; Request</h3>
-            <p>A tarefa, específica e verificável.</p>
-          </div>
-          <div class="concept-card fragment">
-            <h3>E &middot; Examples</h3>
-            <p>Exemplos do padrão de saída esperado (few-shot).</p>
-          </div>
-          <div class="concept-card fragment">
-            <h3>A &middot; Additions</h3>
-            <p>Audiência, restrições, o que NÃO fazer.</p>
-          </div>
-          <div class="concept-card fragment">
-            <h3>T &middot; Type</h3>
-            <p>Formato da saída: tabela, JSON, e-mail, um slide.</p>
-          </div>
-          <div class="concept-card fragment">
-            <h3>E &middot; Extras</h3>
-            <p>Dados, premissas e vocabulário do negócio.</p>
-          </div>
-        </div>
+
+        <table class="embed-tabela">
+          <tr><th>Letra</th><th>O que define</th><th>Exemplo aplicado ao Coroa Premium</th></tr>
+          <tr><td>C &middot; Character</td><td>O papel e a expertise da IA</td><td>"Você é analista de trade marketing da BU Premium."</td></tr>
+          <tr><td>R &middot; Request</td><td>A tarefa central e específica</td><td>"Diga se a queda de volume é concentrada ou uniforme."</td></tr>
+          <tr><td>E &middot; Examples</td><td>O padrão de saída esperado</td><td>"Uma linha por faixa de concorrentes, sem prosa."</td></tr>
+          <tr><td>A &middot; Additions</td><td>Audiência, restrições e riscos</td><td>"Para gerente de marca sem formação técnica."</td></tr>
+          <tr><td>T &middot; Type</td><td>Formato e estrutura da entrega</td><td>"Tabela: faixa, PDVs, delta médio, % abaixo de -15%."</td></tr>
+          <tr><td>E &middot; Extras</td><td>Dados e premissas que ancoram</td><td>"Base: 3.847 PDVs, Q4 2024 contra Q4 2025."</td></tr>
+        </table>
+        <p class="fonte-nota">Toda vez que um pedido à IA frustrar, provavelmente falta uma dessas letras.</p>
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">46</p></div>
       </section>
 
@@ -957,14 +944,21 @@
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
         <div class="slide-title-area">
           <div class="accent-bar"></div>
-          <h2>Nível 0: prompt sem estrutura</h2>
+          <h2>Nível 0: pedido sem papel nem formato</h2>
         </div>
-        <pre class="code-compact"><code>Analise esta tabela e diga o que há de interessante.</code></pre>
-        <ul>
-          <li class="fragment">Saída: "são 3.847 PDVs em 4 regiões, o volume caiu, o tier A concentra o volume..."</li>
-          <li class="fragment">Informações verdadeiras, mas nenhuma sustenta a decisão A vs B.</li>
-        </ul>
-        <p class="fragment"><strong>Uma descrição não é uma análise.</strong> Você precisa de um prompt que force uma decisão.</p>
+
+        <div class="side-by-side prompt-analise">
+          <div>
+            <p class="painel-rotulo">Prompt</p>
+            <pre class="prompt-card">Analise <span class="hl-formato">esses dados</span> do programa e me
+diga <span class="hl-objetivo">o que há de interessante</span>.</pre>
+          </div>
+          <div>
+            <p class="painel-rotulo">Por que falha</p>
+            <ul class="anatomia"><li><span class="rotulo hl-formato">Entrada vaga</span>&ldquo;esses dados&rdquo;: sem arquivo, sem período, sem recorte.</li><li><span class="rotulo hl-objetivo">Objetivo vago</span>&ldquo;interessante&rdquo; não aponta o Caminho A nem o Caminho B.</li></ul>
+          </div>
+        </div>
+        <p class="saida-modelo"><strong>Saída:</strong> "são 3.847 PDVs em 4 regiões, o volume caiu, o tier A concentra o volume." Tudo verdadeiro, nada decidível.</p>
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">47</p></div>
       </section>
 
@@ -973,27 +967,32 @@
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
         <div class="slide-title-area">
           <div class="accent-bar"></div>
-          <h2>Nível 1: persona, delimitadores, restrições</h2>
+          <h2>Nível 1: papel, entrada e restrições</h2>
         </div>
-        <pre class="code-compact"><code><span class="hl-persona">Você é analista de trade marketing da BU Premium de uma cervejaria.</span>
-Analise o CSV delimitado abaixo (dados do programa Coroa Premium,
-Q4 2024 vs Q4 2025, uma linha por PDV).
 
-<span class="hl-formato">Responda para uma gerente de marca SEM formação técnica:
-1. Onde a queda de volume está pior (região e tier)?
-2. Três números que ela deveria levar para a reunião de S&amp;OP.</span>
+        <div class="side-by-side prompt-analise">
+          <div>
+            <p class="painel-rotulo">Prompt</p>
+            <pre class="prompt-card"><span class="hl-papel">Você é analista de trade marketing da BU Premium
+de uma cervejaria.</span> Analise o CSV delimitado abaixo
+<span class="hl-dados">(Coroa Premium, Q4 2024 contra Q4 2025, uma linha
+por PDV)</span>.
 
-<span class="hl-restricao">Restrições: não use jargão estatístico; cite a coluna de origem de
-cada número; termine com a seção "O QUE EU AINDA NÃO SEI".</span>
+<span class="hl-objetivo">Responda para uma gerente de marca SEM formação
+técnica: onde a queda está pior, por região e tier?
+E três números para a reunião de S&amp;OP.</span>
 
-<span class="hl-dados">&lt;dados&gt; ...csv... &lt;/dados&gt;</span></code></pre>
-        <div class="hl-legenda">
-          <span class="lg-persona">persona e papel</span>
-          <span class="lg-formato">pedido e formato</span>
-          <span class="lg-restricao">restrições</span>
-          <span class="lg-dados">entrada delimitada</span>
+<span class="hl-restricao">Sem jargão estatístico. Cite a coluna de origem de
+cada número. Termine com "O QUE EU AINDA NÃO SEI".</span>
+
+<span class="hl-dados">&lt;dados&gt; ...csv... &lt;/dados&gt;</span></pre>
+          </div>
+          <div>
+            <p class="painel-rotulo">O que acabou de mudar</p>
+            <ul class="anatomia"><li><span class="rotulo hl-papel">Papel</span>define vocabulário e critério de relevância.</li><li><span class="rotulo hl-dados">Dados</span>o arquivo, o período e a granularidade de uma linha por PDV.</li><li><span class="rotulo hl-objetivo">Objetivo</span>a audiência e as duas perguntas que a reunião precisa responder.</li><li><span class="rotulo hl-restricao">Restrição</span>a seção de lacunas obriga o modelo a declarar o que não sabe.</li></ul>
+          </div>
         </div>
-        <p class="fragment">É o <strong>P1 do caderno</strong>.</p>
+        <p class="saida-modelo">A resposta deixa de descrever e passa a recomendar. É o <strong>P1 do caderno</strong>. Ainda não responde se a queda é concentrada.</p>
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">48</p></div>
       </section>
 
@@ -1002,22 +1001,30 @@ cada número; termine com a seção "O QUE EU AINDA NÃO SEI".</span>
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
         <div class="slide-title-area">
           <div class="accent-bar"></div>
-          <h2>Nível 2: estrutura na entrada e na saída</h2>
+          <h2>Nível 2: formato fixo entra e sai</h2>
         </div>
-        <pre class="code-compact"><code><span class="hl-dados">Cruze delta_volume_yoy_pct com concorrentes_premium_no_pdv.</span>
 
-<span class="hl-formato">Saída OBRIGATÓRIA, tabela markdown, uma linha por faixa:
-| faixa (0-1, 2, 3+) | nº de PDVs | delta médio | % abaixo de -15% |</span>
+        <div class="side-by-side prompt-analise">
+          <div>
+            <p class="painel-rotulo">Prompt</p>
+            <pre class="prompt-card"><span class="hl-objetivo">Cruze</span> <span class="hl-dados">delta_volume_yoy_pct com
+concorrentes_premium_no_pdv</span>.
 
-Depois da tabela, responda em uma frase: a queda do programa é
-uniforme entre os PDVs ou concentrada em alguma faixa?
-<span class="hl-restricao">Não escreva mais nada além da tabela e da frase.</span></code></pre>
-        <div class="hl-legenda">
-          <span class="lg-dados">colunas de origem</span>
-          <span class="lg-formato">formato obrigatório</span>
-          <span class="lg-restricao">restrição de escopo</span>
+<span class="hl-formato">Saída OBRIGATÓRIA, tabela markdown, uma linha por
+faixa: | faixa (0-1, 2, 3+) | nº de PDVs | delta médio |
+% abaixo de -15% |</span>
+
+Depois da tabela, responda em uma frase: a queda do
+programa é uniforme entre os PDVs ou concentrada em
+alguma faixa?
+<span class="hl-restricao">Não escreva mais nada além da tabela e da frase.</span></pre>
+          </div>
+          <div>
+            <p class="painel-rotulo">O que acabou de mudar</p>
+            <ul class="anatomia"><li><span class="rotulo hl-objetivo">Operação</span>cruzar duas colunas, em vez de descrever uma.</li><li><span class="rotulo hl-dados">Dados</span>as duas colunas nomeadas pelo identificador real do CSV.</li><li><span class="rotulo hl-formato">Formato</span>a tabela fixa torna o resultado comparável entre as mesas.</li><li><span class="rotulo hl-restricao">Restrição</span>corta a prosa em volta que impede a comparação.</li></ul>
+          </div>
         </div>
-        <p class="fragment">Formato de saída fixo elimina prosa vaga e torna o resultado comparável entre mesas. É o P2: o teste da H1.</p>
+        <p class="saida-modelo">É o <strong>P2 do caderno</strong>, e é o pedido que testa a <strong>H1</strong>. Vocês preenchem a tabela no hands-on; o resultado consolidado vem no debrief.</p>
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">49</p></div>
       </section>
 
@@ -1026,23 +1033,51 @@ uniforme entre os PDVs ou concentrada em alguma faixa?
         <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
         <div class="slide-title-area">
           <div class="accent-bar"></div>
-          <h2>Nível 3: postura adversarial + raciocínio guiado</h2>
+          <h2>Nível 3: veredito com raciocínio guiado</h2>
         </div>
-        <pre class="code-compact"><code><span class="hl-persona">Você é um analista cético contratado para DERRUBAR a conclusão
-anterior.</span> Raciocine passo a passo ANTES de concluir:
-<span class="hl-dados">1. Cite a evidência da tabela que sustenta a concentração da queda.
-2. Procure ativamente uma explicação alternativa nos dados
-   (região? tier? tempo de programa? evento ativacional?).</span>
-<span class="hl-formato">3. Classifique a hipótese "a queda é concentrada onde há 3+
-   concorrentes" como: CONFIRMADA / INSUFICIENTE / CONTRADITA.</span>
-4. Liste o que precisaria existir no dado para mudar o veredito.</code></pre>
-        <div class="hl-legenda">
-          <span class="lg-persona">papel adversarial</span>
-          <span class="lg-dados">raciocínio guiado</span>
-          <span class="lg-formato">veredito fechado</span>
+
+        <div class="side-by-side prompt-analise">
+          <div>
+            <p class="painel-rotulo">Prompt</p>
+            <pre class="prompt-card"><span class="hl-papel">Você é um analista cético contratado para DERRUBAR
+a conclusão anterior.</span> Raciocine passo a passo ANTES
+de concluir:
+<span class="hl-dados">1. Cite a evidência da tabela que sustenta a
+   concentração da queda.
+2. Procure uma explicação alternativa nos dados:
+   região, tier, meses_no_programa,
+   evento_ativacional_2025.</span>
+<span class="hl-formato">3. Classifique a hipótese como CONFIRMADA,
+   INSUFICIENTE ou CONTRADITA.</span>
+<span class="hl-restricao">4. Liste o que precisaria existir no dado para
+   mudar o veredito.</span></pre>
+          </div>
+          <div>
+            <p class="painel-rotulo">Por que funciona</p>
+            <ul class="anatomia"><li><span class="rotulo hl-papel">Papel adversarial</span>derrubar a própria conclusão, em vez de confirmá-la.</li><li><span class="rotulo hl-dados">Raciocínio guiado</span>as quatro colunas alternativas ficam nomeadas no pedido.</li><li><span class="rotulo hl-formato">Veredito fechado</span>três saídas possíveis, auditáveis na revisão.</li><li><span class="rotulo hl-restricao">Condição de reversão</span>o modelo declara o que o faria mudar de ideia.</li></ul>
+          </div>
         </div>
-        <p class="fragment">Chain of Thought + papel adversarial: mitigação direta do viés de confirmação apresentado no Módulo 1.</p>
+        <p class="saida-modelo">Chain of Thought mais papel adversarial: mitigação direta do viés de confirmação visto no Módulo 1.</p>
         <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">50</p></div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Princípios, tipos e estratégias</h2>
+        </div>
+
+        <div class="side-by-side" style="grid-template-columns: 1fr 1.25fr; align-items: center;">
+          <div>
+            <p class="fragment"><span class="rotulo hl-formato">Princípios</span> as diretrizes que garantem que o modelo entenda o pedido: especificidade, estrutura lógica, tonalidade e iteração.</p>
+            <p class="fragment"><span class="rotulo hl-dados">Tipos</span> as formas de interação, conforme o objetivo: criativo, informativo, comparativo, iterativo.</p>
+            <p class="fragment"><span class="rotulo hl-papel">Estratégias</span> o como: N-Shot, Auto Prompt, Role Playing, Chain-of-Thought, e as demais que aparecem nos hands-on.</p>
+          </div>
+          <div><svg class="rosacea" viewBox="380 -65 851 851" role="img" aria-label="Três anéis concêntricos: princípios básicos no centro, tipos de prompt no anel médio e estratégias no anel externo" style="width: 100%; max-height: 486px; display: block; margin: 0 auto"><circle cx="805.35" cy="360.0" r="420.25" style="fill: var(--seg-primaria); stroke: var(--inteli-branco); stroke-width: 4"/><circle cx="805.35" cy="360.0" r="289.95" style="fill: var(--seg-secundaria); stroke: var(--inteli-branco); stroke-width: 4"/><circle cx="805.35" cy="360.0" r="177.15" style="fill: var(--seg-superficie); stroke: var(--inteli-branco); stroke-width: 4"/><circle cx="805.35" cy="360.0" r="61.85" style="fill: var(--seg-destaque); stroke: var(--inteli-branco); stroke-width: 4"/><line x1="1095.3" y1="360.0" x2="1225.6" y2="360.0" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="1010.4" y1="565.0" x2="1102.5" y2="657.2" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="805.4" y1="650.0" x2="805.4" y2="780.2" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="600.3" y1="565.0" x2="508.2" y2="657.2" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="515.4" y1="360.0" x2="385.1" y2="360.0" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="600.3" y1="155.0" x2="508.2" y2="62.8" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="805.4" y1="70.1" x2="805.3" y2="-60.2" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="1010.4" y1="155.0" x2="1102.5" y2="62.8" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="930.6" y1="485.3" x2="1010.4" y2="565.0" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="680.1" y1="485.3" x2="600.3" y2="565.0" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="680.1" y1="234.7" x2="600.3" y2="155.0" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="930.6" y1="234.7" x2="1010.4" y2="155.0" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="867.2" y1="360.0" x2="982.5" y2="360.0" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="805.4" y1="421.9" x2="805.4" y2="537.1" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="743.5" y1="360.0" x2="628.2" y2="360.0" style="stroke: var(--inteli-branco); stroke-width: 4"/><line x1="805.4" y1="298.1" x2="805.4" y2="182.8" style="stroke: var(--inteli-branco); stroke-width: 4"/><text x="805.3" y="43.7" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 27px"><tspan x="805.3" dy="0.0">N-Shot Prompt</tspan></text><text x="1066.9" y="131.6" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 27px" transform="rotate(45 1066.9 122.4)"><tspan x="1066.9" dy="0.0">Auto Prompt</tspan></text><text x="1162.4" y="369.2" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 27px" transform="rotate(90 1162.4 360.0)"><tspan x="1162.4" dy="0.0">Tradução</tspan></text><text x="1063.0" y="612.2" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 27px" transform="rotate(315 1063.0 603.0)"><tspan x="1063.0" dy="0.0">Role Playing</tspan></text><text x="812.9" y="700.0" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 27px"><tspan x="812.9" dy="0.0">Chain-of-Thought</tspan></text><text x="547.7" y="612.2" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 27px" transform="rotate(45 547.7 603.0)"><tspan x="547.7" dy="0.0">Expansão</tspan></text><text x="452.8" y="361.5" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 27px" transform="rotate(270 452.8 352.3)"><tspan x="452.8" dy="0.0">Preenchimento</tspan></text><text x="547.7" y="126.2" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 27px" transform="rotate(315 547.7 117.0)"><tspan x="547.7" dy="0.0">Sumarização</tspan></text><text x="805.3" y="150.0" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 27px"><tspan x="805.3" dy="0.0">Criativo</tspan></text><text x="1030.2" y="368.9" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 26px" transform="rotate(90 1030.2 360.1)"><tspan x="1030.2" dy="-14.3">Informativo</tspan><tspan x="1030.2" dy="28.6">&amp; Consultivo</tspan></text><text x="577.9" y="369.2" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 27px" transform="rotate(270 577.9 360.0)"><tspan x="577.9" dy="0.0">Comparativo</tspan></text><text x="805.3" y="592.7" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 27px"><tspan x="805.3" dy="0.0">Iterativo</tspan></text><text x="884.0" y="289.5" text-anchor="middle" style="fill: var(--seg-texto); font-size: 26px" transform="rotate(45 884.0 280.7)"><tspan x="884.0" dy="-14.3">Estruturação</tspan><tspan x="884.0" dy="28.6">Lógica</tspan></text><text x="726.8" y="284.2" text-anchor="middle" style="fill: var(--seg-texto); font-size: 26px" transform="rotate(315 726.8 275.4)"><tspan x="726.8" dy="-14.3">Especificidade</tspan><tspan x="726.8" dy="28.6">&amp; Clareza</tspan></text><text x="889.3" y="450.0" text-anchor="middle" style="fill: var(--seg-texto); font-size: 26px" transform="rotate(315 889.3 441.2)"><tspan x="889.3" dy="-14.3">Tonalidade</tspan><tspan x="889.3" dy="28.6">&amp; Linguagem</tspan></text><text x="726.1" y="448.6" text-anchor="middle" style="fill: var(--seg-texto); font-size: 26px" transform="rotate(45 726.1 439.8)"><tspan x="726.1" dy="-14.3">Etapas</tspan><tspan x="726.1" dy="28.6">&amp; Iterações</tspan></text><text x="805.4" y="367.8" text-anchor="middle" style="fill: var(--inteli-branco); font-size: 17px"><tspan x="805.4" dy="-12.7">Prompt</tspan><tspan x="805.4" dy="25.3">Engineering</tspan></text></svg></div>
+        </div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">51</p></div>
       </section>
 
       <section class="content-slide">
@@ -1052,13 +1087,15 @@ anterior.</span> Raciocine passo a passo ANTES de concluir:
           <div class="accent-bar"></div>
           <h2>Mitigação de alucinações na prática</h2>
         </div>
+
         <ul>
           <li class="fragment"><strong>Origem obrigatória:</strong> todo número citado vem acompanhado da coluna e do filtro que o produziu.</li>
           <li class="fragment"><strong>Iteração:</strong> a primeira resposta é rascunho; refaça a pergunta mudando o ângulo e compare.</li>
-          <li class="fragment"><strong>Verificação cruzada:</strong> o mesmo número em duas ferramentas (Genie e chat). Divergiu? Investigue antes de usar.</li>
+          <li class="fragment"><strong>Verificação cruzada:</strong> o mesmo número em duas ferramentas (Genie e Copilot). Divergiu? Investigue antes de usar.</li>
           <li class="fragment"><strong>Lacunas explícitas:</strong> incluir a seção "O QUE EU AINDA NÃO SEI" em todo prompt analítico.</li>
+          <li class="fragment"><strong>Autocrítica no mesmo pedido:</strong> peça a segunda versão antes de a primeira virar decisão.</li>
         </ul>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">51</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">52</p></div>
       </section>
 
       <section class="exercise-slide">
@@ -1075,7 +1112,37 @@ anterior.</span> Raciocine passo a passo ANTES de concluir:
           <li>Responda em uma frase: <strong>a queda é uniforme ou concentrada?</strong> Isso fortalece A ou B?</li>
         </ol>
         <p><span class="material-symbols-outlined">timer</span> 30 minutos + debrief de 10. As mesas comparam cross-tabs.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">52</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">53</p></div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>A queda vai de -3,0% a -39,2% por faixa</h2>
+        </div>
+
+        <p>Debrief do hands-on 2: o cross-tab do P2 sobre os 3.847 PDVs da base.</p>
+        <div class="side-by-side">
+          <div>
+            <table class="embed-tabela">
+              <tr><th>Concorrentes no PDV</th><th>PDVs</th><th>Delta médio</th></tr>
+              <tr><td>0 ou 1</td><td>2.105</td><td>-3,0%</td></tr>
+              <tr><td>2</td><td>644</td><td>-14,9%</td></tr>
+              <tr><td>3 ou mais</td><td>1.098</td><td>-39,2%</td></tr>
+            </table>
+          </div>
+          <div>
+            <ul class="anatomia">
+              <li class="fragment"><span class="rotulo hl-dados">H1 confirmada</span>a queda do programa se concentra onde há três ou mais concorrentes premium.</li>
+              <li class="fragment"><span class="rotulo hl-formato">Leitura agregada</span>a média de -18,7% do programa inteiro não mostra nenhuma das três faixas.</li>
+              <li class="fragment"><span class="rotulo hl-restricao">Ressalva</span>correlação não é causa: concorrência e queda podem ter causa comum.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="fragment">A concentração sustenta o Caminho A, de afiar a carteira. A leitura de canal afundando por inteiro não descreve este dado.</p>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">54</p></div>
       </section>
 
       <section class="quiz-slide">
@@ -1102,7 +1169,7 @@ anterior.</span> Raciocine passo a passo ANTES de concluir:
                 data-incorrect-msg="Não: autocrítica audita a conclusão, não formata a saída.">Autocrítica (nível 5)</li>
           </ul>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">53</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">55</p></div>
       </section>
 
       <section class="section-slide">
@@ -1129,7 +1196,7 @@ tiers A e B como comparação; imprimir uma tabela com os três
 valores e uma interpretação em linguagem simples, sem os
 termos "coeficiente" ou "regressão".</code></pre>
         <p class="fragment">É o P3: o teste da H2. O prompt descreve a pergunta, não o código; a sintaxe fica com a IA.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">55</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">57</p></div>
       </section>
 
       <section class="content-slide">
@@ -1152,7 +1219,7 @@ visitas_promotor_mes.</code></pre>
             <li class="fragment">Não é necessário decorar sintaxe; o traceback é a entrada do processo de correção.</li>
           </ul>
         </div>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">56</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">58</p></div>
       </section>
 
       <section class="content-slide">
@@ -1168,7 +1235,7 @@ visitas_promotor_mes.</code></pre>
           <li class="fragment">Reprodutibilidade transforma uma análise pontual em processo. É o P4 do caderno.</li>
         </ul>
         <p class="fragment">A mesma pergunta retornará no trimestre seguinte; o script responde sem retrabalho.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">57</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">59</p></div>
       </section>
 
       <section class="content-slide">
@@ -1186,7 +1253,7 @@ no máximo 12 linhas para o VP Comercial:
 - uma ressalva honesta do que os dados NÃO mostram.
 Tom: direto, sem jargão, sem adjetivos de entusiasmo.</code></pre>
         <p class="fragment">Último passo do fluxo: transformar a análise em comunicação executiva para a decisão.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">58</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">60</p></div>
       </section>
 
       <section class="exercise-slide">
@@ -1203,7 +1270,40 @@ Tom: direto, sem jargão, sem adjetivos de entusiasmo.</code></pre>
           <li>Extensão para mesas rápidas: gráfico de dispersão visitas x delta por tier, gerado por código.</li>
         </ol>
         <p><span class="material-symbols-outlined">timer</span> 35 minutos. O achado de H2 entra na recomendação final.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">59</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">61</p></div>
+      </section>
+
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <img class="inteli-logo-header" src="../assets/img/inteli-exec-logo-positiva.png" alt="Logo Inteli Exec">
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Tier C: visita e delta correlacionam -0,53</h2>
+        </div>
+
+        <div class="side-by-side prompt-analise">
+          <div>
+            <p class="painel-rotulo">Prompt</p>
+            <pre class="prompt-card"><span class="hl-objetivo">A visita do promotor converte em volume?</span>
+<span class="hl-dados">Calcule a correlação entre visitas_promotor_mes e
+delta_volume_yoy_pct, separada por tier_historico.</span>
+<span class="hl-formato">Uma linha por tier: tier, nº de PDVs, correlação,
+leitura em uma frase.</span>
+<span class="hl-restricao">Não afirme causa. Diga apenas o que a correlação
+sustenta.</span></pre>
+          </div>
+          <div>
+            <p class="painel-rotulo">Resultado</p>
+            <table class="embed-tabela">
+              <tr><th>Tier</th><th>Correlação</th><th>Leitura</th></tr>
+              <tr><td>A</td><td>+0,55</td><td>mais visita acompanha delta melhor</td></tr>
+              <tr><td>B</td><td>+0,34</td><td>acompanhamento fraco e positivo</td></tr>
+              <tr><td>C</td><td>-0,53</td><td>mais visita acompanha delta pior</td></tr>
+            </table>
+          </div>
+        </div>
+        <p class="fragment"><strong>Debrief do hands-on 3. H2 testada:</strong> em tier C a rota do promotor está concentrada nos PDVs que mais caem, sem conversão em volume. É o argumento para zerar verba nos cerca de 1.450 PDVs sem resposta, que o Caminho A propõe.</p>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">62</p></div>
       </section>
 
       <section class="section-slide">
@@ -1226,7 +1326,7 @@ Tom: direto, sem jargão, sem adjetivos de entusiasmo.</code></pre>
           <li>Três mesas apresentam em 2 minutos. As demais questionam.</li>
         </ol>
         <p>O entregável do dia é uma <strong>decisão de negócio em linguagem executiva</strong>, não um relatório técnico.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">61</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">64</p></div>
       </section>
 
       <section class="content-slide">
@@ -1244,7 +1344,7 @@ Você é o VP Comercial, cético e pressionado.
 3. Diga o que faria você decidir pelo caminho oposto.
 Depois, reescreva a recomendação incorporando o que sobreviveu.</code></pre>
         <p class="fragment">Auditoria da recomendação antes do comitê; mitiga o viés de confirmação apresentado no Módulo 1.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">62</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">65</p></div>
       </section>
 
       <section class="content-slide">
@@ -1262,7 +1362,7 @@ Depois, reescreva a recomendação incorporando o que sobreviveu.</code></pre>
           <li class="fragment"><strong>P5</strong> iteração + autocrítica &middot; a recomendação auditada</li>
         </ul>
         <p class="fragment">Para cada um: o prompt final, a saída, o que falhou antes, e <strong>quando aquela técnica compensa</strong>. Entrega no fim do dia.</p>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">63</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">66</p></div>
       </section>
 
       <section class="content-slide">
@@ -1277,7 +1377,7 @@ Depois, reescreva a recomendação incorporando o que sobreviveu.</code></pre>
           <li class="fragment"><strong>Data Lab:</strong> o fluxo de hoje (pergunta &rarr; prompt &rarr; verificação &rarr; recomendação) é o que os grupos repetem no projeto real da Ambev.</li>
           <li class="fragment"><strong>Banca com VPs:</strong> a mesma exigência de Castellani: recomendação sustentada por dados, não por intuição.</li>
         </ul>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">64</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">67</p></div>
       </section>
 
       <section class="content-slide">
@@ -1295,7 +1395,7 @@ Depois, reescreva a recomendação incorporando o que sobreviveu.</code></pre>
           <li>Kahneman, D. <em>Rápido e Devagar: duas formas de pensar</em>. (base do Módulo 1, retomada aqui)</li>
           <li>Inteli Exec. Caso Coroa Premium, DSDM-AMBEV-MOD2-001, janeiro de 2026.</li>
         </ol>
-        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">65</p></div>
+        <div class="slide-footer"><p class="footer-bar">DSDM Ambev &middot; Módulo 2</p><p class="footer-page">68</p></div>
       </section>
 
       <section class="end-slide">

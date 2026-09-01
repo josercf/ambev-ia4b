@@ -836,3 +836,83 @@
 .autonomia p { margin: 0 0 4px; }
 .autonomia ul { margin: 0; }
 .autonomia li { margin-bottom: 4px; }
+
+/* ============================================================
+   Bloco de engenharia de prompt, mecanica trazida do deck da
+   Copel: prompt pintado a esquerda, chips espelhados a direita.
+   O chip da analise usa a MESMA classe do trecho pintado, que e
+   o que faz o aluno ligar cor a categoria sem legenda.
+
+   Diferenca deliberada em relacao ao original: la o cartao do
+   prompt e escuro (#241D33) com texto claro. Aqui ele e claro.
+   A paleta Exec tem tres matizes (roxo, verde escuro, coral) e
+   um cartao roxo apagaria dois dos cinco realces contra o fundo.
+   ============================================================ */
+
+.prompt-card {
+  background: var(--seg-superficie);
+  border-left: 4px solid var(--seg-primaria);
+  padding: 12px 14px;
+  font-size: 15px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+/* Rotulo do painel, sobre o prompt e sobre a analise */
+.painel-rotulo {
+  font-size: 13px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--seg-primaria);
+  margin: 0 0 6px;
+}
+
+/* Coluna do prompt um pouco mais larga que a da analise, como no
+   original (4,55 pol contra 4,10) */
+.side-by-side.prompt-analise { grid-template-columns: 1.12fr 1fr; }
+
+/* Realce dentro do prompt. "inline" e nao "inline-block" porque a
+   Copel pinta no meio de frase que quebra em varias linhas; o
+   box-decoration-break repete o padding em cada fragmento da
+   quebra, senao o realce fica sem respiro na segunda linha. */
+.hl-papel, .hl-dados, .hl-objetivo, .hl-formato, .hl-restricao {
+  display: inline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 1px 3px;
+}
+
+.hl-papel { background: color-mix(in srgb, var(--seg-primaria) 22%, var(--seg-base)); }
+.hl-dados { background: color-mix(in srgb, var(--seg-secundaria) 22%, var(--seg-base)); }
+.hl-objetivo { background: color-mix(in srgb, var(--seg-destaque) 24%, var(--seg-base)); }
+.hl-formato { background: var(--seg-borda); }
+.hl-restricao { background: var(--seg-base); box-shadow: inset 0 -3px 0 var(--seg-texto-suave); }
+
+/* Lista da analise: o chip repete a classe do trecho pintado */
+.anatomia { list-style: none; margin: 0; padding: 0; }
+
+.anatomia li {
+  font-size: 16px;
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+
+.anatomia .rotulo {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  margin-right: 6px;
+  padding: 2px 6px;
+}
+
+/* Saida do modelo, quando o slide mostra o resultado e nao so o
+   pedido. Filete verde para separar do prompt, que tem filete roxo. */
+.saida-modelo {
+  border-left: 4px solid var(--seg-secundaria);
+  background: var(--seg-base);
+  padding: 8px 12px;
+  margin: 8px 0 0;
+  font-size: 16px;
+}
